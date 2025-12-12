@@ -114,7 +114,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['formType'] == "login") {
             /* Background image with dark overlay */
             background-image: 
                 linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.5)),
-                url('./login.png');
+                url('../FashionHub/index/login.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -122,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['formType'] == "login") {
             /* Keep the existing gradient effects */
             background-image: 
                 linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.75)),
-                url('./login.png'),
+                url('../FashionHub/index/login.png'),
                 radial-gradient(circle at 20% 30%, rgba(123, 97, 255, 0.15) 0%, transparent 40%),
                 radial-gradient(circle at 80% 70%, rgba(255, 97, 189, 0.15) 0%, transparent 40%);
             padding: 20px;
