@@ -1,0 +1,2670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIQLO Women - Modern & Comfortable Fashion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS Variables - Baby Pink Theme ===== */
+        :root {
+            /* Baby Pink Brand Colors */
+            --primary-color: #ffb6c1;
+            --primary-dark: #ff8fab;
+            --primary-light: #ffe4e9;
+            --secondary-color: #f8a5c2;
+            --accent-color: #fff5f7;
+            --accent-dark: #ffd7de;
+            
+            /* Category Colors in Baby Pink Family */
+            --category-pink: #ffb6c1;
+            --category-light-pink: #ffd6e7;
+            --category-soft-pink: #ffecf0;
+            --category-blush: #ffd1dc;
+            --category-rose: #ffafcc;
+            --category-mauve: #e6a8c7;
+            --category-lavender: #d8b4e2;
+            --category-peach: #ffc8dd;
+            --category-mint: #a2d2ff;
+            --category-cream: #fff0f5;
+            
+            /* Text Colors */
+            --text-dark: #5a3d4e;
+            --text-medium: #8a6a7a;
+            --text-light: #b39aa6;
+            --text-white: #ffffff;
+            
+            /* UI Colors */
+            --white: #ffffff;
+            --border-color: #ffd7de;
+            --shadow-light: rgba(255, 182, 193, 0.1);
+            --shadow-medium: rgba(255, 182, 193, 0.2);
+            --overlay: rgba(90, 61, 78, 0.5);
+            
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-xxl: 48px;
+            
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        /* ===== Reset & Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all var(--transition-normal);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 100%;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-medium);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-small {
+            padding: var(--space-sm) var(--space-lg);
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+        }
+
+        /* ===== Announcement Bar ===== */
+        .announcement-bar {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: var(--space-sm) 0;
+            text-align: center;
+            font-size: 13px;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .announcement-bar::before {
+            content: '✨';
+            margin-right: var(--space-sm);
+        }
+
+        .announcement-bar::after {
+            content: '✨';
+            margin-left: var(--space-sm);
+        }
+
+        /* ===== Header ===== */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px var(--shadow-light);
+            z-index: 1000;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-md) 0;
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xl);
+        }
+
+        .nav-item {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: color var(--transition-fast);
+            position: relative;
+            padding: var(--space-sm) 0;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            color: var(--primary-color);
+        }
+
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .logo {
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .uniqlo-logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+            white-space: nowrap;
+        }
+
+        .nav-icon {
+            position: relative;
+            color: var(--text-dark);
+            font-size: 16px;
+            transition: color var(--transition-fast);
+            white-space: nowrap;
+        }
+
+        .nav-icon:hover {
+            color: var(--primary-color);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* ===== Women Categories Navigation ===== */
+        .women-subnav {
+            background-color: var(--accent-color);
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .women-categories {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+        }
+
+        .category-link {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-medium);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+            white-space: nowrap;
+        }
+
+        .category-link:hover,
+        .category-link.active {
+            color: var(--primary-color);
+            background-color: var(--primary-light);
+        }
+
+        /* ===== Hero Carousel ===== */
+        .hero-carousel {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+            margin-bottom: var(--space-xxl);
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity var(--transition-slow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(90, 61, 78, 0.3), rgba(255, 182, 193, 0.2));
+        }
+
+        .carousel-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 var(--space-xl);
+            text-align: left;
+        }
+
+        .carousel-content h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            text-shadow: 2px 2px 4px var(--overlay);
+            line-height: 1.2;
+        }
+
+        .carousel-content p {
+            font-size: 18px;
+            margin-bottom: var(--space-xl);
+            text-shadow: 1px 1px 2px var(--overlay);
+            max-width: 500px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: var(--space-xl);
+            right: var(--space-xl);
+            display: flex;
+            gap: var(--space-sm);
+            z-index: 2;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            border: none;
+        }
+
+        .carousel-dot:hover,
+        .carousel-dot.active {
+            background-color: var(--white);
+            transform: scale(1.2);
+        }
+
+        /* ===== Logo Slider ===== */
+        .logo-slider-section {
+            padding: var(--space-xxl) 0;
+            background-color: var(--accent-color);
+            overflow: hidden;
+            margin-bottom: var(--space-xxl);
+        }
+
+        .logo-slider-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .logo-slider {
+            display: flex;
+            animation: slideLogos 25s linear infinite;
+        }
+
+        .logo-slide {
+            flex: 0 0 auto;
+            min-width: 200px;
+            height: 80px;
+            margin: 0 var(--space-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--primary-color);
+            background-color: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: 0 4px 12px var(--shadow-light);
+            padding: 0 var(--space-xl);
+            transition: all var(--transition-normal);
+            white-space: nowrap;
+        }
+
+        .logo-slide:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
+        }
+
+        @keyframes slideLogos {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* ===== Products Slider (Showing 4 Cards) ===== */
+        .products-slider-section {
+            padding: var(--space-xxl) 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+            color: var(--text-dark);
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            padding: 0 40px;
+        }
+
+        .products-slider {
+            display: flex;
+            gap: var(--space-xl);
+            transition: transform var(--transition-normal);
+            padding: var(--space-md) 0;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        .slider-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: var(--white);
+            border: 1px solid var(--border-color);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            color: var(--text-dark);
+            transition: all var(--transition-normal);
+            box-shadow: 0 2px 8px var(--shadow-light);
+            white-space: nowrap;
+        }
+
+        .slider-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        /* ===== Category Grid ===== */
+        .category-section {
+            padding: var(--space-xxl) 0;
+            background-color: var(--accent-color);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+            padding: 0 var(--space-md);
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            box-shadow: 0 4px 12px var(--shadow-light);
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px var(--shadow-medium);
+        }
+
+        .category-card[data-category="tops"] .category-image {
+            background-color: var(--category-pink);
+        }
+        .category-card[data-category="bottoms"] .category-image {
+            background-color: var(--category-light-pink);
+        }
+        .category-card[data-category="dresses"] .category-image {
+            background-color: var(--category-rose);
+        }
+        .category-card[data-category="outerwear"] .category-image {
+            background-color: var(--category-blush);
+        }
+        .category-card[data-category="activewear"] .category-image {
+            background-color: var(--category-mint);
+        }
+        .category-card[data-category="sale"] .category-image {
+            background-color: var(--category-peach);
+        }
+
+        .category-image {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .category-card:hover .category-image img {
+            transform: scale(1.1);
+        }
+
+        .category-content {
+            padding: var(--space-lg);
+        }
+
+        .category-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--text-dark);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .category-content p {
+            font-size: 14px;
+            color: var(--text-medium);
+            margin-bottom: var(--space-md);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .category-link-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--primary-color);
+            transition: gap var(--transition-fast);
+            white-space: nowrap;
+        }
+
+        .category-link-btn:hover {
+            gap: var(--space-sm);
+        }
+
+        /* ===== Products Grid ===== */
+        .products-section {
+            padding: var(--space-xxl) 0;
+            background-color: var(--white);
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        .view-all {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primary-color);
+            transition: gap var(--transition-fast);
+            white-space: nowrap;
+        }
+
+        .view-all:hover {
+            gap: var(--space-sm);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 12px var(--shadow-light);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px var(--shadow-medium);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: var(--space-md);
+            left: var(--space-md);
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-sm);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 1;
+            white-space: nowrap;
+        }
+
+        .product-badge.new {
+            background-color: var(--primary-color);
+        }
+
+        .product-badge.sale {
+            background-color: var(--category-rose);
+        }
+
+        .product-badge.popular {
+            background-color: var(--category-mint);
+        }
+
+        .product-image {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-actions {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all var(--transition-normal);
+        }
+
+        .product-card:hover .product-actions {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .product-action-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--white);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-dark);
+            transition: all var(--transition-fast);
+            box-shadow: 0 2px 8px var(--shadow-light);
+            white-space: nowrap;
+        }
+
+        .product-action-btn:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: var(--space-lg);
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--text-dark);
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: var(--space-md);
+            white-space: nowrap;
+        }
+
+        .product-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-md);
+            padding-bottom: var(--space-md);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .product-size,
+        .product-color {
+            font-size: 12px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            white-space: nowrap;
+        }
+
+        .product-color-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .product-cta {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        /* ===== Product Detail Modal ===== */
+        .product-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: var(--space-xl);
+        }
+
+        .product-modal.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: var(--space-lg);
+            right: var(--space-lg);
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--text-dark);
+            z-index: 10;
+            transition: all var(--transition-fast);
+            box-shadow: 0 2px 8px var(--shadow-light);
+            white-space: nowrap;
+        }
+
+        .modal-close:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+            transform: rotate(90deg);
+        }
+
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+
+        .product-detail-images {
+            background-color: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl);
+            position: relative;
+        }
+
+        .product-detail-image {
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+        }
+
+        .product-detail-info {
+            padding: var(--space-xxl);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+
+        .product-detail-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.3;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .product-detail-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            white-space: nowrap;
+        }
+
+        .product-detail-description {
+            color: var(--text-medium);
+            line-height: 1.8;
+            margin-bottom: var(--space-md);
+        }
+
+        .product-detail-features {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 14px;
+            color: var(--text-medium);
+            white-space: nowrap;
+        }
+
+        .feature-item i {
+            color: var(--primary-color);
+        }
+
+        .size-selector,
+        .color-selector {
+            margin-bottom: var(--space-lg);
+        }
+
+        .size-selector h4,
+        .color-selector h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+
+        .size-options {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+
+        .size-option {
+            padding: var(--space-sm) var(--space-lg);
+            border: 1px solid var(--border-color);
+            background-color: var(--white);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-size: 13px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .size-option:hover {
+            border-color: var(--primary-color);
+        }
+
+        .size-option.active {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .color-options {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .color-option {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all var(--transition-fast);
+            position: relative;
+            white-space: nowrap;
+        }
+
+        .color-option.active {
+            border-color: var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .color-option.active::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .detail-actions {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        /* ===== Collections ===== */
+        .collections-section {
+            padding: var(--space-xxl) 0;
+            background-color: var(--accent-color);
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .collection-card {
+            min-height: 400px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: var(--space-xxl);
+            background-size: cover;
+            background-position: center;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .collection-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(90, 61, 78, 0.8) 0%, rgba(255, 182, 193, 0.2) 100%);
+            z-index: 1;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px var(--shadow-medium);
+        }
+
+        .collection-card:hover::before {
+            background: linear-gradient(to top, rgba(90, 61, 78, 0.9) 0%, rgba(255, 182, 193, 0.3) 100%);
+        }
+
+        .collection-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .collection-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+            white-space: nowrap;
+        }
+
+        .collection-card p {
+            font-size: 14px;
+            margin-bottom: var(--space-lg);
+            opacity: 0.9;
+            white-space: nowrap;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background-color: #000000;
+            color: #ffffff;
+            padding: var(--space-xxl) 0 var(--space-xl);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xxl);
+            margin-bottom: var(--space-xxl);
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .footer-col ul li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-col a {
+            color: #cccccc;
+            font-size: 14px;
+            transition: color var(--transition-fast);
+            white-space: nowrap;
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #ffffff;
+            transition: all var(--transition-fast);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: var(--space-md);
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: var(--space-md);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+        }
+
+        .newsletter-form input::placeholder {
+            color: #aaaaaa;
+        }
+
+        .newsletter-form button {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            border: none;
+            padding: 0 var(--space-lg);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color var(--transition-fast);
+            white-space: nowrap;
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+        }
+
+        .footer-bottom p {
+            color: #aaaaaa;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--space-xl);
+        }
+
+        .footer-links a {
+            color: #aaaaaa;
+            font-size: 12px;
+            transition: color var(--transition-fast);
+            white-space: nowrap;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ===== Page Content ===== */
+        .page-content {
+            padding: var(--space-xxl) 0;
+            min-height: 60vh;
+        }
+
+        .page-title {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+            color: var(--text-dark);
+            white-space: nowrap;
+        }
+
+        /* ===== Animations ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 1024px) {
+            .product-detail {
+                grid-template-columns: 1fr;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+
+            .product-detail-images {
+                min-height: 400px;
+            }
+
+            .product-detail-info {
+                padding: var(--space-xl);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .nav-left, .nav-right {
+                gap: var(--space-lg);
+            }
+
+            .logo {
+                position: static;
+                transform: none;
+                order: -1;
+            }
+
+            .carousel-content h1 {
+                font-size: 32px;
+            }
+
+            .carousel-content p {
+                font-size: 16px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-lg);
+            }
+
+            .detail-actions {
+                flex-direction: column;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .carousel-content h1 {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn, .btn-outline {
+                padding: var(--space-sm) var(--space-md);
+                font-size: 12px;
+            }
+        }
+
+        /* ===== Utility Classes ===== */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-sm { margin-bottom: var(--space-sm); }
+        .mb-md { margin-bottom: var(--space-md); }
+        .mb-lg { margin-bottom: var(--space-lg); }
+        .mb-xl { margin-bottom: var(--space-xl); }
+        .mb-xxl { margin-bottom: var(--space-xxl); }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>Free Shipping on Orders Over ₹1999 | Easy Returns & Exchanges</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="nav-left">
+                    <a href="../allpages/women.html" class="nav-item active" onclick="showPage('women')">Women</a>
+                    <a href="../allpages/men.html" class="nav-item" onclick="showPage('men')">Men</a>
+                    <a href="../allpages/baby.html" class="nav-item" onclick="showPage('baby')">Baby</a>
+                    <a href="../allpages/kids.html" class="nav-item" onclick="showPage('kids')">Kids</a>
+                    <a href="../index.php" class="nav-item" onclick="showPage('home')">Home</a>
+                </div>
+                
+                <div class="logo">
+                    <a href="#" onclick="showPage('women')">
+                        <span class="uniqlo-logo">UNIQLO</span>
+                    </a>
+                </div>
+                
+                <div class="nav-right">
+                    <a href="#" class="nav-icon" onclick="showPage('search')"><i class="fas fa-search"></i></a>
+                    <a href="#" class="nav-icon" onclick="showPage('account')"><i class="far fa-user"></i></a>
+                    <a href="#" class="nav-icon" onclick="showPage('wishlist')"><i class="far fa-heart"></i></a>
+                    <a href="#" class="nav-icon" onclick="showPage('cart')">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Women Categories Navigation -->
+    <nav class="women-subnav">
+        <div class="container">
+            <div class="women-categories">
+                <a href="#" class="category-link active" onclick="showPage('women')">New Arrivals</a>
+                <a href="#" class="category-link" onclick="showPage('tops')">Tops</a>
+                <a href="#" class="category-link" onclick="showPage('bottoms')">Bottoms</a>
+                <a href="#" class="category-link" onclick="showPage('dresses')">Dresses</a>
+                <a href="#" class="category-link" onclick="showPage('outerwear')">Outerwear</a>
+                <!-- <a href="#" class="category-link" onclick="showPage('activewear')">Activewear</a> -->
+                <!-- <a href="#" class="category-link" onclick="showPage('sale')">Sale</a> -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="pageContainer">
+        <!-- Women Main Page -->
+        <div class="page active" id="women">
+            <!-- Hero Carousel -->
+            <section class="hero-carousel">
+                <div class="carousel-slide active" style="background-image: url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+                    <div class="carousel-content">
+                        <h1>Spring Collection 2024</h1>
+                        <p>Fresh styles for the new season. Discover our latest arrivals in women's fashion.</p>
+                        <a href="#" class="btn" onclick="showPage('new-arrivals')">Shop Now</a>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+                    <div class="carousel-content">
+                        <h1>Premium Quality</h1>
+                        <p>Comfort meets style in every piece. Experience luxury in everyday wear.</p>
+                        <a href="#" class="btn btn-outline" onclick="showPage('collections')">Explore</a>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+                    <div class="carousel-content">
+                        <h1>Summer Essentials</h1>
+                        <p>Lightweight fabrics for warm days. Stay cool and stylish all summer long.</p>
+                        <a href="#" class="btn" onclick="showPage('essentials')">Shop Now</a>
+                    </div>
+                </div>
+                <div class="carousel-dots">
+                    <button class="carousel-dot active" onclick="currentSlide(0)"></button>
+                    <button class="carousel-dot" onclick="currentSlide(1)"></button>
+                    <button class="carousel-dot" onclick="currentSlide(2)"></button>
+                </div>
+            </section>
+
+            <!-- Logo Slider -->
+            <section class="logo-slider-section">
+                <div class="logo-slider-container">
+                    <div class="logo-slider">
+                        <div class="logo-slide">HEATTECH</div>
+                        <div class="logo-slide">AIRism</div>
+                        <div class="logo-slide">ULTRA LIGHT</div>
+                        <div class="logo-slide">UNIQLO U</div>
+                        <div class="logo-slide">+J</div>
+                        <div class="logo-slide">HEATTECH</div>
+                        <div class="logo-slide">AIRism</div>
+                        <div class="logo-slide">ULTRA LIGHT</div>
+                        <div class="logo-slide">UNIQLO U</div>
+                        <div class="logo-slide">+J</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Categories -->
+            <section class="category-section">
+                <div class="container">
+                    <h2 class="section-title">Shop By Category</h2>
+                    <div class="category-grid">
+                        <div class="category-card" data-category="tops" onclick="showPage('tops')">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Tops">
+                            </div>
+                            <div class="category-content">
+                                <h3>Tops</h3>
+                                <p>Shirts, Blouses & T-shirts</p>
+                                <a href="#" class="category-link-btn" onclick="showPage('tops')">
+                                    Shop Now <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="category-card" data-category="bottoms" onclick="showPage('bottoms')">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Bottoms">
+                            </div>
+                            <div class="category-content">
+                                <h3>Bottoms</h3>
+                                <p>Pants, Skirts & Shorts</p>
+                                <a href="#" class="category-link-btn" onclick="showPage('bottoms')">
+                                    Shop Now <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="category-card" data-category="dresses" onclick="showPage('dresses')">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Dresses">
+                            </div>
+                            <div class="category-content">
+                                <h3>Dresses</h3>
+                                <p>Casual & Formal Dresses</p>
+                                <a href="#" class="category-link-btn" onclick="showPage('dresses')">
+                                    Shop Now <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="category-card" data-category="outerwear" onclick="showPage('outerwear')">
+                            <div class="category-image">
+                                <img src="https://images.unsplash.com/photo-1552374196-1ab2a1c593e8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Outerwear">
+                            </div>
+                            <div class="category-content">
+                                <h3>Outerwear</h3>
+                                <p>Jackets & Coats</p>
+                                <a href="#" class="category-link-btn" onclick="showPage('outerwear')">
+                                    Shop Now <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Auto Slider - Showing 4 Cards -->
+            <section class="products-slider-section">
+                <div class="container">
+                    <h2 class="section-title">Trending Now</h2>
+                    <div class="slider-container">
+                        <div class="products-slider" id="productsSlider">
+                            <!-- Products loaded via JavaScript - Will show 4 cards at a time -->
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button class="slider-btn" onclick="prevSlide()"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn" onclick="nextSlide()"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Featured Products -->
+            <section class="products-section">
+                <div class="container">
+                    <div class="products-header">
+                        <h2 class="section-title">New Arrivals</h2>
+                        <a href="#" class="view-all" onclick="showPage('all-products')">
+                            View All <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="products-grid" id="productsGrid">
+                        <!-- Products loaded via JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Collections -->
+            <section class="collections-section">
+                <div class="container">
+                    <h2 class="section-title">Featured Collections</h2>
+                    <div class="collections-grid">
+                        <div class="collection-card" style="background-image: url('../women/HEATTECH\ Collection.jpg')">
+                            <div class="collection-content">
+                                <h3>HEATTECH Collection</h3>
+                                <p>Extra warmth for chilly days</p>
+                                <a href="#" class="btn btn-outline" onclick="showPage('heattech')">Explore</a>
+                            </div>
+                        </div>
+                        <div class="collection-card" style="background-image: url('../women/AIRism\ Collection.avif');">
+                            <div class="collection-content">
+                                <h3>AIRism Collection</h3>
+                                <p>Breathable comfort for summer</p>
+                                <a href="#" class="btn btn-outline" onclick="showPage('airism')">Explore</a>
+                            </div>
+                        </div>
+                        <div class="collection-card" style="background-image: url('../women/Premium\ Collection.jpg');">
+                            <div class="collection-content">
+                                <h3>Premium Collection</h3>
+                                <p>Luxury fabrics & designs</p>
+                                <a href="#" class="btn btn-outline" onclick="showPage('premium')">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Category Pages -->
+        <div class="page" id="tops">
+            <div class="container page-content">
+                <h1 class="page-title">Tops Collection</h1>
+                <div class="products-grid" id="topsProducts">
+                    <!-- Tops products loaded via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="dresses">
+            <div class="container page-content">
+                <h1 class="page-title">Dresses Collection</h1>
+                <div class="products-grid" id="dressesProducts">
+                    <!-- Dresses products loaded via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="bottoms">
+            <div class="container page-content">
+                <h1 class="page-title">Bottoms Collection</h1>
+                <div class="products-grid" id="bottomsProducts">
+                    <!-- Bottoms products loaded via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="outerwear">
+            <div class="container page-content">
+                <h1 class="page-title">Outerwear Collection</h1>
+                <div class="products-grid" id="outerwearProducts">
+                    <!-- Outerwear products loaded via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Cart Page -->
+        <div class="page" id="cart">
+            <div class="container page-content">
+                <h1 class="page-title">Your Shopping Bag</h1>
+                <div class="cart-container" style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px;">
+                    <div id="cartItems" style="background: var(--accent-color); padding: 30px; border-radius: var(--radius-lg);">
+                        <!-- Cart items loaded via JavaScript -->
+                        <p class="text-center">Your cart is empty</p>
+                    </div>
+                    <div class="cart-summary" style="background: var(--white); padding: 30px; border-radius: var(--radius-lg); box-shadow: 0 4px 12px var(--shadow-light);">
+                        <h3 style="margin-bottom: 30px; font-size: 18px;">Order Summary</h3>
+                        <div style="display: flex; justify-content: space-between; margin: 20px 0; padding-bottom: 20px; border-bottom: 1px solid var(--border-color);">
+                            <span>Subtotal:</span>
+                            <span id="cartSubtotal" style="font-weight: 600;">₹0</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin: 20px 0; padding-bottom: 20px; border-bottom: 1px solid var(--border-color);">
+                            <span>Shipping:</span>
+                            <span id="cartShipping">Calculated at checkout</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 20px; margin: 30px 0;">
+                            <span>Total:</span>
+                            <span id="cartTotal">₹0</span>
+                        </div>
+                        <button class="btn" style="width: 100%; padding: 15px; white-space: nowrap;" onclick="checkout()">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wishlist Page -->
+        <div class="page" id="wishlist">
+            <div class="container page-content">
+                <h1 class="page-title">My Wishlist</h1>
+                <div class="products-grid" id="wishlistItems">
+                    <!-- Wishlist items loaded via JavaScript -->
+                    <p class="text-center">Your wishlist is empty</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Page -->
+        <div class="page" id="search">
+            <div class="container page-content">
+                <h1 class="page-title">Search Products</h1>
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <input type="text" id="searchInput" placeholder="Search for women's fashion..." style="width: 100%; max-width: 500px; padding: 15px; border: 2px solid var(--border-color); border-radius: 8px; font-size: 16px; margin-bottom: 20px;">
+                    <button class="btn" onclick="performSearch()">Search</button>
+                </div>
+                <div id="searchResults" class="products-grid">
+                    <!-- Search results loaded via JavaScript -->
+                    <p class="text-center">Enter a search term to find products</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProductDetail()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="product-detail" id="productDetailContent">
+                <!-- Product detail loaded via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Information</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                    </ul>
+                </div>
+            
+                <div class="footer-col">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                        <a href="https://pinterest.com"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                    <div class="newsletter">
+                        <h5>Join Our Newsletter</h5>
+                        <form class="newsletter-form" onsubmit="event.preventDefault(); subscribeNewsletter();">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 UNIQLO India. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== Product Data =====
+        const womenProducts = [
+            // Tops (1-3)
+            { 
+                id: 1, 
+                category: 'tops', 
+                title: 'Baby Pink Cotton T-Shirt', 
+                price: '₹799', 
+                originalPrice: '₹999',
+                size: 'S-XXL', 
+                color: 'baby pink',
+                colorCode: '#ffb6c1',
+                badge: 'new',
+                description: 'Soft 100% organic cotton t-shirt in beautiful baby pink color with a comfortable fit and clean design. Perfect for everyday wear. Made from sustainable materials and designed for long-lasting comfort.',
+                features: [
+                    '100% organic cotton',
+                    'Regular fit',
+                    'Machine washable',
+                    'Breathable fabric',
+                    'Sustainable material',
+                    'Color fast',
+                    'Soft to touch'
+                ],
+                image: '../women/baby-pink-tshirt.jpg' 
+            },
+            
+            { 
+                id: 2, 
+                category: 'tops', 
+                title: 'Silk Blouse - Rose Pink', 
+                price: '₹2,499', 
+                size: 'XS-L', 
+                color: 'rose pink',
+                colorCode: '#ffafcc',
+                badge: 'popular',
+                description: 'Elegant silk blouse with delicate details and comfortable fit in beautiful rose pink. Perfect for formal occasions and special events. Features mother-of-pearl buttons and French seams.',
+                features: [
+                    '100% pure silk',
+                    'Button front design',
+                    'Classic collar',
+                    'Dry clean only',
+                    'Timeless elegance',
+                    'French seams',
+                    'Mother-of-pearl buttons'
+                ],
+                image: '../women/Silk Blouse - Rose Pink.webp' 
+            },
+            
+            { 
+                id: 3, 
+                category: 'tops', 
+                title: 'Cashmere Sweater - Blush', 
+                price: '₹3,499', 
+                originalPrice: '₹4,999',
+                size: 'S-XXL', 
+                color: 'blush pink',
+                colorCode: '#ffd1dc',
+                badge: 'sale',
+                description: 'Luxurious cashmere sweater in soft blush pink for ultimate warmth and comfort. Perfect for winter days and cozy evenings. Features ribbed cuffs and hem for a perfect fit.',
+                features: [
+                    '100% cashmere',
+                    'Ribbed cuffs and hem',
+                    'Round neck design',
+                    'Hand wash only',
+                    'Premium quality',
+                    'Lightweight warmth',
+                    'Anti-pilling treatment'
+                ],
+                image: '../women/Cashmere Sweater - Blush.webp' 
+            },
+            
+            // Dresses (4-6)
+            { 
+                id: 4, 
+                category: 'dresses', 
+                title: 'Summer Midi Dress - Pink Floral', 
+                price: '₹1,999', 
+                size: 'XS-L', 
+                color: 'pink floral',
+                colorCode: '#ff69b4',
+                badge: 'new',
+                description: 'Lightweight midi dress with beautiful floral pattern in pink hues for warm summer days. Features adjustable straps and hidden pockets. Perfect for garden parties and summer outings.',
+                features: [
+                    'Lightweight fabric',
+                    'Floral pattern',
+                    'Midi length',
+                    'Machine washable',
+                    'Perfect for summer',
+                    'Adjustable straps',
+                    'Hidden pockets'
+                ],
+                image: '../women/Summer Midi Dress - Pink Floral.jpg' 
+            },
+            
+            { 
+                id: 5, 
+                category: 'dresses', 
+                title: 'Wrap Dress - Mauve', 
+                price: '₹2,299', 
+                size: 'S-XXL', 
+                color: 'mauve',
+                colorCode: '#e6a8c7',
+                badge: 'popular',
+                description: 'Flattering wrap dress in elegant mauve that suits all body types. Versatile for any occasion from office to dinner dates. Features adjustable tie waist and flowy silhouette.',
+                features: [
+                    'Wrap design',
+                    'Adjustable tie waist',
+                    'Knee length',
+                    'Easy care fabric',
+                    'Flattering fit',
+                    '3/4 sleeves',
+                    'V-neck design'
+                ],
+                image: '../women/Wrap Dress - Mauve.avif' 
+            },
+            
+            { 
+                id: 6, 
+                category: 'dresses', 
+                title: 'Evening Gown - Rose Gold', 
+                price: '₹4,999', 
+                size: 'XS-L', 
+                color: 'rose gold',
+                colorCode: '#e6b8c7',
+                badge: 'new',
+                description: 'Elegant evening gown in rose gold with flowing silhouette. Perfect for special occasions like weddings and galas. Features delicate beading and built-in corset for support.',
+                features: [
+                    'Floor length',
+                    'Flowing fabric',
+                    'V-neck design',
+                    'Dry clean only',
+                    'Elegant drape',
+                    'Delicate beading',
+                    'Built-in corset'
+                ],
+                image: '../women/Evening Gown - Rose Gold.webp' 
+            },
+            
+            // Bottoms (7-9)
+            { 
+                id: 7, 
+                category: 'bottoms', 
+                title: 'High-Waist Jeans - Pink Wash', 
+                price: '₹1,799', 
+                originalPrice: '₹2,299',
+                size: '24-34', 
+                color: 'pink wash',
+                colorCode: '#ff8fab',
+                badge: 'sale',
+                description: 'Comfortable high-waist jeans with stretch fabric in trendy pink wash. Perfect fit for all-day comfort. Features distressed details and raw hem for a modern look.',
+                features: [
+                    'Stretch denim',
+                    'High waist design',
+                    'Skinny fit',
+                    'Machine washable',
+                    'Premium quality',
+                    'Distressed details',
+                    'Raw hem design'
+                ],
+                image: '../women/high-waist jeans-pink wash.webp' 
+            },
+            
+            { 
+                id: 8, 
+                category: 'bottoms', 
+                title: 'Wide-Leg Pants - Soft Pink', 
+                price: '₹1,599', 
+                size: 'XS-L', 
+                color: 'soft pink',
+                colorCode: '#ffecf0',
+                badge: 'new',
+                description: 'Trendy wide-leg pants in soft pink with comfortable elastic waistband. Perfect for casual wear and lounging. Made from breathable cotton blend for all-day comfort.',
+                features: [
+                    'Wide leg design',
+                    'Elastic waist',
+                    'Lightweight fabric',
+                    'Machine washable',
+                    'Comfortable fit',
+                    'Breathable cotton blend',
+                    'Side pockets'
+                ],
+                image: '../women/Wide-Leg Pants - Soft Pink.avif' 
+            },
+            
+            { 
+                id: 9, 
+                category: 'bottoms', 
+                title: 'Midi Skirt - Dusty Pink', 
+                price: '₹1,299', 
+                size: 'XS-L', 
+                color: 'dusty pink',
+                colorCode: '#d8a8b8',
+                badge: 'popular',
+                description: 'Flowy midi skirt in beautiful dusty pink perfect for summer days. Elegant and comfortable with side slit for easy movement. Pairs well with any top for versatile styling.',
+                features: [
+                    'Midi length',
+                    'Flowy fabric',
+                    'Elastic waist',
+                    'Machine washable',
+                    'Versatile style',
+                    'Side slit',
+                    'Lightweight material'
+                ],
+                image: '../women/Midi Skirt - Dusty Pink.webp' 
+            },
+            
+            // Outerwear (10-12)
+            { 
+                id: 10, 
+                category: 'outerwear', 
+                title: 'Trench Coat - Pink', 
+                price: '₹3,999', 
+                size: 'S-XXL', 
+                color: 'pink',
+                colorCode: '#ffb6c1',
+                badge: 'new',
+                description: 'Classic trench coat in beautiful pink with water-resistant fabric. Timeless style for any season. Features double-breasted design, epaulettes, and storm flap.',
+                features: [
+                    'Water-resistant',
+                    'Belted design',
+                    'Classic trench style',
+                    'Dry clean only',
+                    'Timeless elegance',
+                    'Double-breasted',
+                    'Storm flap'
+                ],
+                image: '../women/Trench Coat - Pink.avif' 
+            },
+            
+            { 
+                id: 11, 
+                category: 'outerwear', 
+                title: 'Puffer Jacket - Pastel Pink', 
+                price: '₹2,999', 
+                originalPrice: '₹3,999',
+                size: 'XS-L', 
+                color: 'pastel pink',
+                colorCode: '#ffd6e7',
+                badge: 'sale',
+                description: 'Warm puffer jacket in pastel pink for cold weather. Lightweight yet highly insulated with water-resistant finish. Features stand collar and multiple pockets.',
+                features: [
+                    'Highly insulated',
+                    'Water-resistant',
+                    'Zipper closure',
+                    'Machine washable',
+                    'Lightweight warmth',
+                    'Stand collar',
+                    'Multiple pockets'
+                ],
+                image: '../women/Puffer Jacket - Pastel Pink.avif' 
+            },
+            
+            { 
+                id: 12, 
+                category: 'outerwear', 
+                title: 'Denim Jacket - Pink Wash', 
+                price: '₹2,499', 
+                size: 'S-XXL', 
+                color: 'pink denim',
+                colorCode: '#e6b8c7',
+                badge: 'popular',
+                description: 'Trendy denim jacket in pink wash with stylish details. Classic style that never goes out of fashion. Features distressed details and custom embroidery.',
+                features: [
+                    '100% cotton denim',
+                    'Button front',
+                    'Classic fit',
+                    'Machine washable',
+                    'Distressed details',
+                    'Custom embroidery',
+                    'Chest pockets'
+                ],
+                image: '../women/Denim Jacket - Pink Wash.webp' 
+            },
+            
+            // Additional products (13-15)
+            { 
+                id: 13, 
+                category: 'tops', 
+                title: 'Linen Shirt - Powder Pink', 
+                price: '₹1,499', 
+                size: 'XS-L', 
+                color: 'powder pink',
+                colorCode: '#ffecf0',
+                badge: 'new',
+                description: 'Breathable linen shirt in powder pink for summer. Perfect for hot weather with roll-up sleeves feature. Features button-down collar and chest pocket.',
+                features: [
+                    '100% linen',
+                    'Button front',
+                    'Relaxed fit',
+                    'Machine washable',
+                    'Natural fabric',
+                    'Roll-up sleeves',
+                    'Chest pocket'
+                ],
+                image: '../women/Linen Shirt - Powder Pink.webp' 
+            },
+            
+            { 
+                id: 14, 
+                category: 'dresses', 
+                title: 'Shirt Dress - Pink Stripes', 
+                price: '₹1,799', 
+                size: 'S-XXL', 
+                color: 'pink stripes',
+                colorCode: '#ffafcc',
+                badge: 'popular',
+                description: 'Versatile shirt dress in pink stripes that can be styled multiple ways. Perfect for work or casual outings. Features button front and self-tie belt.',
+                features: [
+                    'Button front design',
+                    'Belt included',
+                    'Knee length',
+                    'Machine washable',
+                    'Versatile styling',
+                    'Long sleeves',
+                    'Classic collar'
+                ],
+                image: 'https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' 
+            },
+            
+            { 
+                id: 15, 
+                category: 'bottoms', 
+                title: 'Tailored Trousers - Blush', 
+                price: '₹1,899', 
+                size: 'XS-L', 
+                color: 'blush',
+                colorCode: '#ffd1dc',
+                badge: 'new',
+                description: 'Professional tailored trousers in blush for work. Crisp and polished look with crease-resistant fabric. Features waistband gripper and functional pockets.',
+                features: [
+                    'Tailored fit',
+                    'Crease resistant',
+                    'Side pockets',
+                    'Machine washable',
+                    'Professional style',
+                    'Waistband gripper',
+                    'Functional pockets'
+                ],
+                image: '../women/Tailored Trousers - Blush.webp' 
+            }
+        ];
+
+        // ===== State Management =====
+        let cart = [];
+        let wishlist = [];
+        let currentPage = 'women';
+        let carouselIndex = 0;
+        let sliderIndex = 0;
+        const cardsPerSlide = 4; // Show 4 cards at a time in slider
+
+        // ===== Initialize on Page Load =====
+        document.addEventListener('DOMContentLoaded', function() {
+            loadWomenProducts();
+            loadProductsSlider();
+            startCarousel();
+            updateCartCount();
+            
+            // Add click listeners to product cards
+            document.addEventListener('click', function(e) {
+                const productCard = e.target.closest('.product-card');
+                if (productCard && !e.target.closest('.product-action-btn')) {
+                    const productId = parseInt(productCard.getAttribute('data-product-id'));
+                    if (productId) {
+                        showProductDetail(productId);
+                    }
+                }
+            });
+        });
+
+        // ===== Carousel Functions =====
+        function startCarousel() {
+            setInterval(() => {
+                nextCarouselSlide();
+            }, 5000);
+        }
+
+        function nextCarouselSlide() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            slides[carouselIndex].classList.remove('active');
+            dots[carouselIndex].classList.remove('active');
+            
+            carouselIndex = (carouselIndex + 1) % slides.length;
+            
+            slides[carouselIndex].classList.add('active');
+            dots[carouselIndex].classList.add('active');
+        }
+
+        function currentSlide(n) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            slides[carouselIndex].classList.remove('active');
+            dots[carouselIndex].classList.remove('active');
+            
+            carouselIndex = n;
+            
+            slides[carouselIndex].classList.add('active');
+            dots[carouselIndex].classList.add('active');
+        }
+
+        // ===== Products Slider Functions (Showing 4 Cards) =====
+        function loadProductsSlider() {
+            const slider = document.getElementById('productsSlider');
+            if (!slider) return;
+            
+            slider.innerHTML = '';
+            
+            // Display first 8 products for slider (enough for 2 slides of 4 cards each)
+            const sliderProducts = womenProducts.slice(0, 8);
+            
+            sliderProducts.forEach(product => {
+                slider.innerHTML += createProductCardHTML(product);
+            });
+            
+            // Set initial slider width to show 4 cards
+            updateSliderWidth();
+        }
+
+        function updateSliderWidth() {
+            const slider = document.getElementById('productsSlider');
+            const cards = slider.querySelectorAll('.product-card');
+            const cardWidth = 280; // Fixed width for cards
+            const gap = 32; // gap between cards
+            const totalWidth = (cardWidth + gap) * cards.length;
+            slider.style.width = `${totalWidth}px`;
+        }
+
+        function nextSlide() {
+            const slider = document.getElementById('productsSlider');
+            const cards = slider.querySelectorAll('.product-card');
+            const totalSlides = Math.ceil(cards.length / cardsPerSlide);
+            
+            sliderIndex = (sliderIndex + 1) % totalSlides;
+            updateSliderPosition();
+        }
+
+        function prevSlide() {
+            const slider = document.getElementById('productsSlider');
+            const cards = slider.querySelectorAll('.product-card');
+            const totalSlides = Math.ceil(cards.length / cardsPerSlide);
+            
+            sliderIndex = sliderIndex === 0 ? totalSlides - 1 : sliderIndex - 1;
+            updateSliderPosition();
+        }
+
+        function updateSliderPosition() {
+            const slider = document.getElementById('productsSlider');
+            const cardWidth = 280; // Fixed width for cards
+            const gap = 32; // gap between cards
+            const translateX = -(sliderIndex * (cardWidth + gap) * cardsPerSlide);
+            slider.style.transform = `translateX(${translateX}px)`;
+        }
+
+        // ===== Page Navigation =====
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update active nav items
+            updateActiveNav(pageId);
+            
+            // Load content for specific pages
+            loadPageContent(pageId);
+            
+            currentPage = pageId;
+            return false;
+        }
+
+        function updateActiveNav(pageId) {
+            // Update main nav
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Update women subnav
+            document.querySelectorAll('.category-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Mark active links based on page
+            if (pageId === 'women' || ['tops', 'bottoms', 'dresses', 'outerwear'].includes(pageId)) {
+                document.querySelector('.nav-item[onclick*="women"]').classList.add('active');
+                document.querySelector('.category-link[onclick*="women"]').classList.add('active');
+            }
+            
+            // Mark specific category if applicable
+            const categoryLink = document.querySelector(`.category-link[onclick*="${pageId}"]`);
+            if (categoryLink) {
+                categoryLink.classList.add('active');
+            }
+        }
+
+        function loadPageContent(pageId) {
+            switch(pageId) {
+                case 'tops':
+                    loadCategoryProducts('tops', 'topsProducts');
+                    break;
+                case 'dresses':
+                    loadCategoryProducts('dresses', 'dressesProducts');
+                    break;
+                case 'bottoms':
+                    loadCategoryProducts('bottoms', 'bottomsProducts');
+                    break;
+                case 'outerwear':
+                    loadCategoryProducts('outerwear', 'outerwearProducts');
+                    break;
+                case 'cart':
+                    loadCart();
+                    break;
+                case 'wishlist':
+                    loadWishlist();
+                    break;
+            }
+        }
+
+        // ===== Product Display Functions =====
+        function loadWomenProducts() {
+            const productsGrid = document.getElementById('productsGrid');
+            if (!productsGrid) return;
+            
+            productsGrid.innerHTML = '';
+            
+            // Display first 8 products
+            womenProducts.slice(0, 8).forEach(product => {
+                productsGrid.innerHTML += createProductCardHTML(product);
+            });
+        }
+
+        function loadCategoryProducts(category, containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            const categoryProducts = womenProducts.filter(p => p.category === category);
+            
+            if (categoryProducts.length === 0) {
+                container.innerHTML = '<p class="text-center">No products found in this category.</p>';
+                return;
+            }
+            
+            categoryProducts.forEach(product => {
+                container.innerHTML += createProductCardHTML(product);
+            });
+        }
+
+        function createProductCardHTML(product) {
+            const badgeHTML = product.badge ? `<div class="product-badge ${product.badge}">${product.badge.toUpperCase()}</div>` : '';
+            const originalPriceHTML = product.originalPrice ? `<span style="text-decoration: line-through; color: var(--text-light); font-size: 14px; margin-left: 8px;">${product.originalPrice}</span>` : '';
+            
+            return `
+                <div class="product-card" data-product-id="${product.id}">
+                    ${badgeHTML}
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.title}" loading="lazy">
+                        <div class="product-actions">
+                            <button class="product-action-btn" onclick="event.stopPropagation(); addToWishlist(${product.id})">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="product-action-btn" onclick="event.stopPropagation(); quickAddToCart(${product.id})">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.title}</h3>
+                        <p class="product-price">${product.price}${originalPriceHTML}</p>
+                        <div class="product-meta">
+                            <span class="product-size">
+                                <i class="fas fa-ruler"></i> ${product.size}
+                            </span>
+                            <span class="product-color">
+                                <span class="product-color-dot" style="background-color: ${product.colorCode}"></span>
+                                ${product.color}
+                            </span>
+                        </div>
+                        <div class="product-cta">
+                            <button class="btn btn-small" onclick="event.stopPropagation(); addToCart(${product.id})">Add to Cart</button>
+                            <button class="btn-outline btn-small" onclick="event.stopPropagation(); showProductDetail(${product.id})">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ===== Product Detail Functions =====
+        function showProductDetail(productId) {
+            const product = womenProducts.find(p => p.id === productId);
+            if (!product) return;
+            
+            const sizes = product.size.split('-');
+            let sizeOptions = '';
+            if (sizes.length === 2) {
+                const start = sizes[0];
+                const end = sizes[1];
+                const sizeArray = [];
+                
+                // Simple size generator for demo
+                if (start === 'XS' && end === 'XXL') {
+                    sizeArray.push('XS', 'S', 'M', 'L', 'XL', 'XXL');
+                } else if (start === '24' && end === '34') {
+                    for (let i = 24; i <= 34; i += 2) {
+                        sizeArray.push(i.toString());
+                    }
+                } else {
+                    sizeArray.push('S', 'M', 'L');
+                }
+                
+                sizeOptions = sizeArray.map(size => `
+                    <button class="size-option ${size === 'M' ? 'active' : ''}" onclick="selectSize(this, '${size}')">${size}</button>
+                `).join('');
+            }
+            
+            const colors = [
+                { name: product.color, code: product.colorCode },
+                { name: 'Baby Pink', code: '#ffb6c1' },
+                { name: 'Rose Pink', code: '#ffafcc' },
+                { name: 'Blush', code: '#ffd1dc' }
+            ];
+            
+            const colorOptions = colors.map((color, index) => `
+                <div class="color-option ${index === 0 ? 'active' : ''}" 
+                     style="background-color: ${color.code}"
+                     title="${color.name}"
+                     onclick="selectColor(this, '${color.name}', '${color.code}')"></div>
+            `).join('');
+            
+            const featuresHTML = product.features.map(feature => `
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>${feature}</span>
+                </div>
+            `).join('');
+            
+            const modalContent = document.getElementById('productDetailContent');
+            modalContent.innerHTML = `
+                <div class="product-detail-images">
+                    <img src="${product.image}" alt="${product.title}" class="product-detail-image">
+                </div>
+                <div class="product-detail-info">
+                    <h1 class="product-detail-title">${product.title}</h1>
+                    <p class="product-detail-price">${product.price} ${product.originalPrice ? `<span style="text-decoration: line-through; color: var(--text-light); font-size: 18px; margin-left: 10px;">${product.originalPrice}</span>` : ''}</p>
+                    <p class="product-detail-description">${product.description}</p>
+                    
+                    <div class="product-detail-features">
+                        ${featuresHTML}
+                    </div>
+                    
+                    <div class="size-selector">
+                        <h4>Select Size</h4>
+                        <div class="size-options">
+                            ${sizeOptions}
+                        </div>
+                    </div>
+                    
+                    <div class="color-selector">
+                        <h4>Select Color</h4>
+                        <div class="color-options">
+                            ${colorOptions}
+                        </div>
+                    </div>
+                    
+                    <div class="detail-actions">
+                        <button class="btn" onclick="addToCart(${product.id}, true)">
+                            <i class="fas fa-shopping-bag"></i> Add to Cart
+                        </button>
+                        <button class="btn-outline" onclick="addToWishlist(${product.id})">
+                            <i class="far fa-heart"></i> Add to Wishlist
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('productModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProductDetail() {
+            document.getElementById('productModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function selectSize(button, size) {
+            document.querySelectorAll('.size-option').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+        }
+
+        function selectColor(button, color, colorCode) {
+            document.querySelectorAll('.color-option').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+        }
+
+        // ===== Cart Functions =====
+        function quickAddToCart(productId) {
+            addToCart(productId, true);
+        }
+
+        function addToCart(productId, showAlert = true) {
+            const product = womenProducts.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1,
+                    selectedSize: 'M',
+                    selectedColor: product.color
+                });
+            }
+            
+            updateCartCount();
+            
+            if (showAlert) {
+                showNotification('Added to cart!', 'success');
+            }
+            
+            if (currentPage === 'cart') {
+                loadCart();
+            }
+            
+            closeProductDetail();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartCount();
+            loadCart();
+            showNotification('Removed from cart', 'info');
+        }
+
+        function updateQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity < 1) {
+                    removeFromCart(productId);
+                    return;
+                }
+                updateCartCount();
+                loadCart();
+            }
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.querySelector('.cart-count').textContent = count;
+        }
+
+        function loadCart() {
+            const cartContainer = document.getElementById('cartItems');
+            const subtotalElement = document.getElementById('cartSubtotal');
+            const totalElement = document.getElementById('cartTotal');
+            
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p class="text-center" style="color: var(--text-light);">Your cart is empty</p>';
+                subtotalElement.textContent = '₹0';
+                totalElement.textContent = '₹0';
+                return;
+            }
+            
+            cartContainer.innerHTML = '';
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const price = parseInt(item.price.replace('₹', '').replace(',', ''));
+                const itemTotal = price * item.quantity;
+                subtotal += itemTotal;
+                
+                cartContainer.innerHTML += `
+                    <div style="display: grid; grid-template-columns: 100px 1fr auto auto; gap: 20px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border-color);">
+                        <div style="width: 100px; height: 100px; border-radius: 8px; overflow: hidden;">
+                            <img src="${item.image}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 8px;">${item.title}</h4>
+                            <p style="color: var(--text-light); font-size: 14px; margin-bottom: 4px;">Size: ${item.selectedSize || item.size}</p>
+                            <p style="color: var(--text-light); font-size: 14px;">Color: ${item.selectedColor || item.color}</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <button class="btn-icon" onclick="updateQuantity(${item.id}, -1)" style="background: var(--accent-dark);"><i class="fas fa-minus"></i></button>
+                            <span style="font-weight: 600;">${item.quantity}</span>
+                            <button class="btn-icon" onclick="updateQuantity(${item.id}, 1)" style="background: var(--accent-dark);"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="font-weight: 600; margin-bottom: 8px;">₹${itemTotal}</p>
+                            <button class="btn-outline btn-small" onclick="removeFromCart(${item.id})">Remove</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            const shipping = subtotal > 1999 ? 0 : 99;
+            const total = subtotal + shipping;
+            
+            subtotalElement.textContent = `₹${subtotal}`;
+            totalElement.textContent = `₹${total}`;
+            document.getElementById('cartShipping').textContent = shipping === 0 ? 'FREE' : `₹${shipping}`;
+        }
+
+        // ===== Wishlist Functions =====
+        function addToWishlist(productId, showAlert = true) {
+            const product = womenProducts.find(p => p.id === productId);
+            
+            if (!wishlist.some(item => item.id === productId)) {
+                wishlist.push(product);
+                
+                if (showAlert) {
+                    showNotification('Added to wishlist!', 'success');
+                }
+                
+                if (currentPage === 'wishlist') {
+                    loadWishlist();
+                }
+            } else {
+                showNotification('Already in wishlist!', 'info');
+            }
+        }
+
+        function removeFromWishlist(productId) {
+            wishlist = wishlist.filter(item => item.id !== productId);
+            loadWishlist();
+            showNotification('Removed from wishlist', 'info');
+        }
+
+        function loadWishlist() {
+            const wishlistContainer = document.getElementById('wishlistItems');
+            
+            if (wishlist.length === 0) {
+                wishlistContainer.innerHTML = '<p class="text-center" style="color: var(--text-light);">Your wishlist is empty</p>';
+                return;
+            }
+            
+            wishlistContainer.innerHTML = '';
+            wishlist.forEach(product => {
+                wishlistContainer.innerHTML += createProductCardHTML(product);
+            });
+        }
+
+        // ===== Search Function =====
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            const searchResults = document.getElementById('searchResults');
+            
+            if (!searchTerm) {
+                searchResults.innerHTML = '<p class="text-center" style="color: var(--text-light);">Please enter a search term.</p>';
+                return;
+            }
+            
+            const filteredProducts = womenProducts.filter(product => 
+                product.title.toLowerCase().includes(searchTerm) ||
+                product.category.toLowerCase().includes(searchTerm) ||
+                product.color.toLowerCase().includes(searchTerm) ||
+                product.description.toLowerCase().includes(searchTerm) ||
+                product.features.some(feature => feature.toLowerCase().includes(searchTerm))
+            );
+            
+            if (filteredProducts.length === 0) {
+                searchResults.innerHTML = '<p class="text-center" style="color: var(--text-light);">No products found.</p>';
+                return;
+            }
+            
+            searchResults.innerHTML = '<h3 style="grid-column: 1 / -1; text-align: center; margin-bottom: 30px; color: var(--text-dark);">Search Results</h3>';
+            
+            filteredProducts.forEach(product => {
+                searchResults.innerHTML += createProductCardHTML(product);
+            });
+        }
+
+        // ===== Utility Functions =====
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `
+                <div style="position: fixed; top: 20px; right: 20px; background: ${type === 'success' ? '#4caf50' : type === 'error' ? '#f44336' : '#2196f3'}; color: white; padding: 16px 24px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 3000; display: flex; align-items: center; gap: 12px; animation: slideIn 0.3s ease;">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!', 'error');
+                return;
+            }
+            
+            showNotification('Proceeding to checkout... This is a demo site.', 'info');
+        }
+
+        function subscribeNewsletter() {
+            showNotification('Thank you for subscribing to our newsletter!', 'success');
+        }
+
+        // Add CSS for notification animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Auto-slide for trending section
+        setInterval(() => {
+            nextSlide();
+        }, 4000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,3038 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNIQLO Kids - Fun & Comfortable Kids Fashion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ===== CSS Variables - UNIQLO Kids Theme ===== */
+        :root {
+            /* UNIQLO Brand Colors with Yellow Emphasis */
+            --primary-color: #ffcc00; /* Changed to yellow */
+            --primary-dark: #e6b800;
+            --primary-light: #ffe066;
+            --secondary-color: #2d6cc0;
+            --secondary-dark: #1e4a8e;
+            --secondary-light: #5a93e6;
+            --accent-color: #ff6b35;
+            --accent-dark: #e65100;
+            
+            /* Kids Category Colors */
+            --category-boys: #2d6cc0;
+            --category-girls: #e6007e;
+            --category-babies: #ff8ab7;
+            --category-playwear: #ffcc00; /* Yellow */
+            --category-sleepwear: #9b4dca;
+            --category-shoes: #00a859;
+            --category-accessories: #ff6b35;
+            
+            /* Text Colors */
+            --text-dark: #333333;
+            --text-medium: #666666;
+            --text-light: #999999;
+            --text-white: #ffffff;
+            
+            /* UI Colors */
+            --white: #ffffff;
+            --light-bg: #f8f9fa;
+            --border-color: #e0e0e0;
+            --shadow-light: rgba(0, 0, 0, 0.1);
+            --shadow-medium: rgba(0, 0, 0, 0.15);
+            --overlay: rgba(0, 0, 0, 0.5);
+            
+            /* Spacing */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-xxl: 48px;
+            
+            /* Border Radius */
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-normal: 0.3s ease;
+            --transition-slow: 0.5s ease;
+        }
+
+        /* ===== Reset & Base Styles ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            background-color: var(--primary-color);
+            color: #333; /* Dark text for yellow background */
+            border: none;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all var(--transition-normal);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-medium);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: #333;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--secondary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-small {
+            padding: var(--space-sm) var(--space-lg);
+            font-size: 12px;
+        }
+
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ===== Announcement Bar ===== */
+        .announcement-bar {
+            background-color: var(--primary-color); /* Yellow */
+            color: #333; /* Dark text for yellow background */
+            padding: var(--space-sm) 0;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .announcement-bar::before {
+            content: '🎉';
+            margin-right: var(--space-sm);
+        }
+
+        .announcement-bar::after {
+            content: '🎉';
+            margin-left: var(--space-sm);
+        }
+
+        /* ===== Header ===== */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: var(--white);
+            box-shadow: 0 2px 10px var(--shadow-light);
+            z-index: 1000;
+        }
+
+        .main-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-md) 0;
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: var(--space-xl);
+        }
+
+        .nav-item {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: color var(--transition-fast);
+            position: relative;
+            padding: var(--space-sm) 0;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            color: var(--primary-color);
+        }
+
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .logo {
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .uniqlo-logo {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            font-size: 28px;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+        }
+
+        .nav-icon {
+            position: relative;
+            color: var(--text-dark);
+            font-size: 16px;
+            transition: color var(--transition-fast);
+        }
+
+        .nav-icon:hover {
+            color: var(--primary-color);
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--primary-color);
+            color: #333;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        /* ===== Kids Sub Navigation ===== */
+        .kids-subnav {
+            background-color: var(--light-bg);
+            padding: var(--space-md) 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .kids-categories {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-lg);
+            flex-wrap: wrap;
+        }
+
+        .category-link {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-medium);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .category-link:hover,
+        .category-link.active {
+            color: #333;
+            background-color: var(--primary-color); /* Yellow background */
+        }
+
+        /* ===== Hero Carousel ===== */
+        .hero-carousel {
+            position: relative;
+            height: 500px;
+            overflow: hidden;
+            margin-bottom: var(--space-xxl);
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity var(--transition-slow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.2));
+        }
+
+        .carousel-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 0 var(--space-xl);
+            text-align: center;
+        }
+
+        .carousel-content h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            text-shadow: 2px 2px 4px var(--overlay);
+            line-height: 1.2;
+        }
+
+        .carousel-content p {
+            font-size: 18px;
+            margin-bottom: var(--space-xl);
+            text-shadow: 1px 1px 2px var(--overlay);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: var(--space-xl);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: var(--space-sm);
+            z-index: 2;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            border: none;
+        }
+
+        .carousel-dot:hover,
+        .carousel-dot.active {
+            background-color: var(--primary-color); /* Yellow */
+            transform: scale(1.2);
+        }
+
+        /* ===== Age Categories ===== */
+        .age-categories {
+            padding: var(--space-xxl) 0;
+            background-color: var(--white);
+        }
+
+        .section-title {
+            font-size: 32px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color); /* Yellow */
+        }
+
+        .age-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-xxl);
+        }
+
+        .age-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            box-shadow: 0 4px 12px var(--shadow-light);
+            position: relative;
+        }
+
+        .age-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px var(--shadow-medium);
+        }
+
+        .age-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .age-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .age-card:hover .age-image img {
+            transform: scale(1.1);
+        }
+
+        .age-content {
+            padding: var(--space-lg);
+            text-align: center;
+        }
+
+        .age-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--text-dark);
+        }
+
+        .age-content p {
+            font-size: 14px;
+            color: var(--text-medium);
+            margin-bottom: var(--space-md);
+        }
+
+        /* ===== Products Section ===== */
+        .products-section {
+            padding: var(--space-xxl) 0;
+            background-color: var(--light-bg);
+        }
+
+        .products-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-xl);
+        }
+
+        .view-all {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--primary-color);
+            transition: gap var(--transition-fast);
+        }
+
+        .view-all:hover {
+            gap: var(--space-sm);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 12px var(--shadow-light);
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px var(--shadow-medium);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: var(--space-md);
+            left: var(--space-md);
+            background-color: var(--primary-color); /* Yellow */
+            color: #333; /* Dark text for yellow background */
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-sm);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 1;
+        }
+
+        .product-badge.new {
+            background-color: var(--primary-color); /* Yellow */
+        }
+
+        .product-badge.sale {
+            background-color: var(--category-girls);
+            color: white;
+        }
+
+        .product-badge.popular {
+            background-color: var(--category-boys);
+            color: white;
+        }
+
+        .product-image {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            background-color: var(--light-bg);
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform var(--transition-slow);
+            padding: var(--space-md);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
+        .product-actions {
+            position: absolute;
+            top: var(--space-md);
+            right: var(--space-md);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            opacity: 0;
+            transform: translateX(20px);
+            transition: all var(--transition-normal);
+        }
+
+        .product-card:hover .product-actions {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .product-action-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--white);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-dark);
+            transition: all var(--transition-fast);
+            box-shadow: 0 2px 8px var(--shadow-light);
+        }
+
+        .product-action-btn:hover {
+            background-color: var(--primary-color);
+            color: #333;
+            transform: scale(1.1);
+        }
+
+        .product-info {
+            padding: var(--space-lg);
+        }
+
+        .product-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: var(--space-sm);
+            color: var(--text-dark);
+            line-height: 1.4;
+        }
+
+        .product-price {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color); /* Yellow */
+            margin-bottom: var(--space-md);
+        }
+
+        .product-price .original {
+            text-decoration: line-through;
+            color: var(--text-light);
+            font-size: 14px;
+            margin-left: var(--space-xs);
+        }
+
+        .product-age {
+            font-size: 12px;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: var(--space-xs);
+            margin-bottom: var(--space-sm);
+        }
+
+        .product-cta {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        /* ===== Category Grid ===== */
+        .category-section {
+            padding: var(--space-xxl) 0;
+            background-color: var(--white);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .category-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+            box-shadow: 0 4px 12px var(--shadow-light);
+            position: relative;
+        }
+
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px var(--shadow-medium);
+        }
+
+        .category-card .category-image {
+            height: 180px;
+            background-color: var(--light-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .category-card .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .category-card:hover .category-image img {
+            transform: scale(1.1);
+        }
+
+        .category-card .category-content {
+            padding: var(--space-lg);
+        }
+
+        .category-card h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
+            color: var(--text-dark);
+        }
+
+        .category-card p {
+            font-size: 14px;
+            color: var(--text-medium);
+            margin-bottom: var(--space-md);
+        }
+
+        /* ===== Product Detail Modal ===== */
+        .product-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay);
+            z-index: 2000;
+            overflow-y: auto;
+            padding: var(--space-xl);
+        }
+
+        .product-modal.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            animation: slideUp 0.4s ease;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: var(--space-lg);
+            right: var(--space-lg);
+            width: 40px;
+            height: 40px;
+            background-color: var(--white);
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            color: var(--text-dark);
+            z-index: 10;
+            transition: all var(--transition-fast);
+            box-shadow: 0 2px 8px var(--shadow-light);
+        }
+
+        .modal-close:hover {
+            background-color: var(--primary-color);
+            color: #333;
+            transform: rotate(90deg);
+        }
+
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+        }
+
+        .product-detail-images {
+            background-color: var(--light-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-xl);
+            position: relative;
+        }
+
+        .product-detail-image {
+            max-width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+        }
+
+        .product-detail-info {
+            padding: var(--space-xxl);
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-lg);
+        }
+
+        .product-detail-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        .product-detail-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color); /* Yellow */
+        }
+
+        .product-detail-description {
+            color: var(--text-medium);
+            line-height: 1.8;
+            margin-bottom: var(--space-md);
+        }
+
+        .product-detail-features {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            margin-bottom: var(--space-lg);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            font-size: 14px;
+            color: var(--text-medium);
+        }
+
+        .feature-item i {
+            color: var(--primary-color);
+        }
+
+        .size-selector,
+        .age-selector {
+            margin-bottom: var(--space-lg);
+        }
+
+        .size-selector h4,
+        .age-selector h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: var(--space-md);
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .size-options,
+        .age-options {
+            display: flex;
+            gap: var(--space-sm);
+            flex-wrap: wrap;
+        }
+
+        .size-option,
+        .age-option {
+            padding: var(--space-sm) var(--space-lg);
+            border: 1px solid var(--border-color);
+            background-color: var(--white);
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .size-option:hover,
+        .age-option:hover {
+            border-color: var(--primary-color);
+        }
+
+        .size-option.active,
+        .age-option.active {
+            background-color: var(--primary-color);
+            color: #333;
+            border-color: var(--primary-color);
+        }
+
+        .detail-actions {
+            display: flex;
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        /* ===== Collections ===== */
+        .collections-section {
+            padding: var(--space-xxl) 0;
+            background-color: var(--white);
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+        }
+
+        .collection-card {
+            min-height: 400px;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            position: relative;
+            color: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: var(--space-xxl);
+            background-size: cover;
+            background-position: center;
+            transition: all var(--transition-normal);
+            cursor: pointer;
+        }
+
+        .collection-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 100%);
+            z-index: 1;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px var(--shadow-medium);
+        }
+
+        .collection-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .collection-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: var(--space-sm);
+        }
+
+        .collection-card p {
+            font-size: 14px;
+            margin-bottom: var(--space-lg);
+            opacity: 0.9;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background-color: #000000; /* Black background */
+            color: var(--text-white);
+            padding: var(--space-xxl) 0 var(--space-xl);
+            box-shadow: 0 -2px 10px var(--shadow-medium);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-xxl);
+            margin-bottom: var(--space-xxl);
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+            color: var(--primary-color); /* Yellow text for headings */
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer-col a {
+            color: #cccccc; /* Light gray for links */
+            font-size: 14px;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-col a:hover {
+            color: var(--primary-color); /* Yellow on hover */
+        }
+
+        .social-icons {
+            display: flex;
+            gap: var(--space-md);
+            margin-bottom: var(--space-lg);
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: #333333;
+            border-radius: 50%;
+            color: var(--white);
+            transition: all var(--transition-fast);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            color: #333;
+            transform: translateY(-2px);
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: var(--space-md);
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: var(--space-md);
+            border: 1px solid #333;
+            background-color: #1a1a1a;
+            color: white;
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+            font-size: 14px;
+        }
+
+        .newsletter-form input::placeholder {
+            color: #999;
+        }
+
+        .newsletter-form button {
+            background-color: var(--primary-color);
+            color: #333;
+            border: none;
+            padding: 0 var(--space-lg);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background-color var(--transition-fast);
+        }
+
+        .newsletter-form button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-lg);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: var(--space-xl);
+        }
+
+        .footer-links a {
+            color: #999;
+            font-size: 12px;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* ===== Page Content ===== */
+        .page-content {
+            padding: var(--space-xxl) 0;
+            min-height: 60vh;
+        }
+
+        .page-title {
+            font-size: 36px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+            color: var(--text-dark);
+        }
+
+        .age-page {
+            padding: var(--space-xxl) 0;
+        }
+
+        .age-page-header {
+            text-align: center;
+            margin-bottom: var(--space-xxl);
+        }
+
+        .age-page-header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+            color: var(--text-dark);
+        }
+
+        .age-page-header p {
+            color: var(--text-medium);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ===== Animations ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== Responsive Design ===== */
+        @media (max-width: 1024px) {
+            .product-detail {
+                grid-template-columns: 1fr;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+
+            .product-detail-images {
+                min-height: 400px;
+            }
+
+            .product-detail-info {
+                padding: var(--space-xl);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .nav-left, .nav-right {
+                gap: var(--space-lg);
+            }
+
+            .logo {
+                position: static;
+                transform: none;
+                order: -1;
+            }
+
+            .carousel-content h1 {
+                font-size: 32px;
+            }
+
+            .carousel-content p {
+                font-size: 16px;
+            }
+
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: var(--space-lg);
+            }
+
+            .detail-actions {
+                flex-direction: column;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .carousel-content h1 {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn, .btn-outline {
+                padding: var(--space-sm) var(--space-md);
+                font-size: 12px;
+            }
+        }
+
+        /* ===== Utility Classes ===== */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-sm { margin-bottom: var(--space-sm); }
+        .mb-md { margin-bottom: var(--space-md); }
+        .mb-lg { margin-bottom: var(--space-lg); }
+        .mb-xl { margin-bottom: var(--space-xl); }
+        .mb-xxl { margin-bottom: var(--space-xxl); }
+        
+        /* Yellow highlight for featured items */
+        .featured-yellow {
+            background-color: var(--primary-color);
+            color: #333;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 12px;
+            display: inline-block;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <p>Free Shipping on Orders Over ₹1999 | Easy Returns & Exchanges</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="main-nav">
+                <div class="nav-left">
+                    <a href="../allpages/women.html" class="nav-item" onclick="showPage('women')">Women</a>
+                    <a href="../allpages/men.html" class="nav-item" onclick="showPage('men')">Men</a>
+                    <a href="../allpages/baby.html" class="nav-item" onclick="showPage('baby')">Baby</a>
+                    <a href="../allpages/kids.html" class="nav-item active" onclick="showPage('kids')">Kids</a>
+                    <a href="../index.php" class="nav-item" onclick="showPage('home')">Home</a>
+                </div>
+                
+                <div class="logo">
+                    <a href="#" onclick="showPage('kids')">
+                        <span class="uniqlo-logo">UNIQLO</span>
+                    </a>
+                </div>
+                
+                <div class="nav-right">
+                    <a href="#" class="nav-icon" onclick="showPage('search')"><i class="fas fa-search"></i></a>
+                    <a href="#" class="nav-icon" onclick="showPage('account')"><i class="far fa-user"></i></a>
+                    <a href="#" class="nav-icon" onclick="showPage('wishlist')"><i class="far fa-heart"></i></a>
+                    <a href="#" class="nav-icon" onclick="showPage('cart')">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Kids Categories Navigation -->
+    <nav class="kids-subnav">
+        <div class="container">
+            <div class="kids-categories">
+                <a href="#" class="category-link active" onclick="showPage('kids')">New Arrivals</a>
+                <a href="#" class="category-link" onclick="showPage('kids-boys')">Boys (4-14)</a>
+                <a href="#" class="category-link" onclick="showPage('kids-girls')">Girls (4-14)</a>
+                <a href="#" class="category-link" onclick="showPage('kids-baby')">Baby (0-3)</a>
+                <!-- <a href="#" class="category-link" onclick="showPage('kids-playwear')">Playwear</a> -->
+                <!-- <a href="#" class="category-link" onclick="showPage('kids-school')">School Uniform</a> -->
+                <a href="#" class="category-link" onclick="showPage('kids-sale')">Sale</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="pageContainer">
+        <!-- Kids Main Page -->
+        <div class="page active" id="kids">
+            <!-- Hero Carousel -->
+            <section class="hero-carousel">
+                <div class="carousel-slide active" style="background-image: url('../kids/Kids\ Collection\ 2024.webp');">
+                    <div class="carousel-content">
+                        <h1>Kids Collection 2024</h1>
+                        <p>Colorful, comfortable, and fun clothing for your little ones. Designed for play and everyday adventures.</p>
+                        <a href="#" class="btn" onclick="showPage('kids-new-arrivals')">Shop Now</a>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+                    <div class="carousel-content">
+                        <h1>Back to School</h1>
+                        <p>Comfortable uniforms and school essentials that kids love to wear every day.</p>
+                        <a href="#" class="btn btn-outline" onclick="showPage('kids-school')">Explore</a>
+                    </div>
+                </div>
+                <div class="carousel-slide" style="background-image: url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');">
+                    <div class="carousel-content">
+                        <h1>Summer Play Collection</h1>
+                        <p>Lightweight and breathable fabrics perfect for summer adventures and outdoor play.</p>
+                        <a href="#" class="btn" onclick="showPage('kids-playwear')">Shop Now</a>
+                    </div>
+                </div>
+                <div class="carousel-dots">
+                    <button class="carousel-dot active" onclick="currentSlide(0)"></button>
+                    <button class="carousel-dot" onclick="currentSlide(1)"></button>
+                    <button class="carousel-dot" onclick="currentSlide(2)"></button>
+                </div>
+            </section>
+
+            <!-- Age Categories -->
+            <section class="age-categories">
+                <div class="container">
+                    <h2 class="section-title">Shop By Age</h2>
+                    <div class="age-grid">
+                        <div class="age-card" onclick="showPage('kids-baby')">
+                            <div class="age-image">
+                                <img src="../kids/Baby Collection (0-3 Years) .jpg" alt="Baby (0-3)">
+                            </div>
+                            <div class="age-content">
+                                <h3>Baby (0-3 Years) <span class="featured-yellow">NEW</span></h3>
+                                <p>Soft, gentle clothing for newborns and toddlers</p>
+                                <a href="#" class="category-link-btn" onclick="showPage('kids-baby')">
+                                    Shop Now <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="age-card" onclick="showPage('kids-boys')">
+                            <div class="age-image">
+                                <img src="../kids/Boys Collection (4-14 Years) .jpg" alt="Boys (4-14)">
+                            </div>
+                            <div class="age-content">
+                                <h3>Boys (4-14 Years) <span class="featured-yellow">POPULAR</span></h3>
+                                <p>Durable and stylish clothing for active boys</p>
+                                <a href="#" class="category-link-btn" onclick="showPage('kids-boys')">
+                                    Shop Now <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="age-card" onclick="showPage('kids-girls')">
+                            <div class="age-image">
+                                <img src="../kids/Girls Collection (4-14 Years).jpeg" alt="Girls (4-14)">
+                            </div>
+                            <div class="age-content">
+                                <h3>Girls (4-14 Years) <span class="featured-yellow">BESTSELLER</span></h3>
+                                <p>Colorful and fun clothing for growing girls</p>
+                                <a href="#" class="category-link-btn" onclick="showPage('kids-girls')">
+                                    Shop Now <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- New Arrivals - Now showing 12+ products -->
+            <section class="products-section">
+                <div class="container">
+                    <div class="products-header">
+                        <h2 class="section-title">New Arrivals <span class="featured-yellow" style="font-size: 16px; padding: 8px 16px;">12+ ITEMS</span></h2>
+                        <a href="#" class="view-all" onclick="showPage('kids-all-products')">
+                            View All <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="products-grid" id="kidsProductsGrid">
+                        <!-- Products loaded via JavaScript - Minimum 12 products -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Category Grid -->
+        
+
+            <!-- Collections -->
+            <section class="collections-section">
+                <div class="container">
+                    <h2 class="section-title">Featured Collections</h2>
+                    <div class="collections-grid">
+                        <div class="collection-card" style="background-image: url('../kids/HEATTECH\ for\ Kids.jpg');">
+                            <div class="collection-content">
+                                <h3>HEATTECH for Kids</h3>
+                                <p>Extra warmth for chilly days</p>
+                                <a href="#" class="btn btn-outline" onclick="showPage('kids-heattech')">Explore</a>
+                            </div>
+                        </div>
+                        <div class="collection-card" style="background-image: url('../kids/AIRism\ for\ Kids.avif');">
+                            <div class="collection-content">
+                                <h3>AIRism for Kids</h3>
+                                <p>Breathable comfort for summer</p>
+                                <a href="#" class="btn btn-outline" onclick="showPage('kids-airism')">Explore</a>
+                            </div>
+                        </div>
+                        <div class="collection-card" style="background-image: url('https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                            <div class="collection-content">
+                                <h3>UT Graphic Tees</h3>
+                                <p>Fun designs kids love</p>
+                                <a href="#" class="btn btn-outline" onclick="showPage('kids-ut')">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Category Pages -->
+        <div class="page" id="kids-baby">
+            <div class="container age-page">
+                <div class="age-page-header">
+                    <h1>Baby Collection (0-3 Years) <span class="featured-yellow" style="font-size: 20px; padding: 10px 20px;">10+ PRODUCTS</span></h1>
+                    <p>Soft, gentle, and comfortable clothing for your little one. Made with premium fabrics that are gentle on baby's skin.</p>
+                </div>
+                <div class="products-grid" id="babyProducts">
+                    <!-- Baby products loaded via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="kids-boys">
+            <div class="container age-page">
+                <div class="age-page-header">
+                    <h1>Boys Collection (4-14 Years) <span class="featured-yellow" style="font-size: 20px; padding: 10px 20px;">10+ PRODUCTS</span></h1>
+                    <p>Durable, stylish, and comfortable clothing for active boys. Designed for play, school, and everyday adventures.</p>
+                </div>
+                <div class="products-grid" id="boysProducts">
+                    <!-- Boys products loaded via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="kids-girls">
+            <div class="container age-page">
+                <div class="age-page-header">
+                    <h1>Girls Collection (4-14 Years) <span class="featured-yellow" style="font-size: 20px; padding: 10px 20px;">10+ PRODUCTS</span></h1>
+                    <p>Colorful, fun, and comfortable clothing for growing girls. Perfect for school, play, and special occasions.</p>
+                </div>
+                <div class="products-grid" id="girlsProducts">
+                    <!-- Girls products loaded via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="kids-playwear">
+            <div class="container page-content">
+                <h1 class="page-title">Playwear Collection <span class="featured-yellow" style="font-size: 20px; padding: 10px 20px;">10+ PRODUCTS</span></h1>
+                <div class="products-grid" id="playwearProducts">
+                    <!-- Playwear products loaded via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="kids-school">
+            <div class="container page-content">
+                <h1 class="page-title">School Uniform Collection <span class="featured-yellow" style="font-size: 20px; padding: 10px 20px;">10+ PRODUCTS</span></h1>
+                <div class="products-grid" id="schoolProducts">
+                    <!-- School uniform products loaded via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="kids-sale">
+            <div class="container page-content">
+                <h1 class="page-title">Sale - Up to 50% Off <span class="featured-yellow" style="font-size: 20px; padding: 10px 20px;">10+ PRODUCTS</span></h1>
+                <div class="products-grid" id="saleProducts">
+                    <!-- Sale products loaded via JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Cart Page -->
+        <div class="page" id="cart">
+            <div class="container page-content">
+                <h1 class="page-title">Your Shopping Bag</h1>
+                <div class="cart-container" style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px;">
+                    <div id="cartItems" style="background: var(--light-bg); padding: 30px; border-radius: var(--radius-lg);">
+                        <!-- Cart items loaded via JavaScript -->
+                        <p class="text-center">Your cart is empty</p>
+                    </div>
+                    <div class="cart-summary" style="background: var(--white); padding: 30px; border-radius: var(--radius-lg); box-shadow: 0 4px 12px var(--shadow-light);">
+                        <h3 style="margin-bottom: 30px; font-size: 18px;">Order Summary</h3>
+                        <div style="display: flex; justify-content: space-between; margin: 20px 0; padding-bottom: 20px; border-bottom: 1px solid var(--border-color);">
+                            <span>Subtotal:</span>
+                            <span id="cartSubtotal" style="font-weight: 600;">₹0</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin: 20px 0; padding-bottom: 20px; border-bottom: 1px solid var(--border-color);">
+                            <span>Shipping:</span>
+                            <span id="cartShipping">Calculated at checkout</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 20px; margin: 30px 0;">
+                            <span>Total:</span>
+                            <span id="cartTotal">₹0</span>
+                        </div>
+                        <button class="btn" style="width: 100%; padding: 15px;" onclick="checkout()">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Wishlist Page -->
+        <div class="page" id="wishlist">
+            <div class="container page-content">
+                <h1 class="page-title">My Wishlist</h1>
+                <div class="products-grid" id="wishlistItems">
+                    <!-- Wishlist items loaded via JavaScript -->
+                    <p class="text-center">Your wishlist is empty</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Page -->
+        <div class="page" id="search">
+            <div class="container page-content">
+                <h1 class="page-title">Search Kids Products</h1>
+                <div style="text-align: center; margin-bottom: 40px;">
+                    <input type="text" id="searchInput" placeholder="Search for kids fashion..." style="width: 100%; max-width: 500px; padding: 15px; border: 2px solid var(--primary-color); border-radius: 8px; font-size: 16px; margin-bottom: 20px;">
+                    <button class="btn" onclick="performSearch()">Search</button>
+                </div>
+                <div id="searchResults" class="products-grid">
+                    <!-- Search results loaded via JavaScript -->
+                    <p class="text-center">Enter a search term to find products</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div class="product-modal" id="productModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProductDetail()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="product-detail" id="productDetailContent">
+                <!-- Product detail loaded via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Information</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">Care Instructions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About UNIQLO</h4>
+                    <ul>
+                        <li><a href="#">Our Philosophy</a></li>
+                        <li><a href="#">Quality & Safety</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Store Locator</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Connect With Us</h4>
+                    <div class="social-icons">
+                        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+                        <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                        <a href="https://pinterest.com"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                    <div class="newsletter">
+                        <h5>Join Our Newsletter</h5>
+                        <form class="newsletter-form" onsubmit="event.preventDefault(); subscribeNewsletter();">
+                            <input type="email" placeholder="Your email address" required>
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 UNIQLO India. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== Kids Product Data =====
+        const kidsProducts = [
+            // Baby Products (0-3 years) - 12 products
+            { 
+                id: 1, 
+                category: 'baby',
+                subcategory: 'baby-boys',
+                title: 'Baby Bodysuits - 3 Pack', 
+                price: '₹899', 
+                originalPrice: '₹1,199',
+                age: '0-24 months',
+                size: 'NB-24M',
+                color: 'White, Blue, Gray',
+                badge: 'new',
+                description: 'Soft 100% cotton bodysuits for babies. Gentle on sensitive skin with snap closures for easy diaper changes. Perfect for everyday wear and comfortable sleep.',
+                features: [
+                    '100% organic cotton',
+                    'Snap closures',
+                    'Gentle on skin',
+                    'Machine washable',
+                    'Breathable fabric',
+                    'Oeko-Tex certified',
+                    'Tagless design'
+                ],
+                image: '../kids/Baby Bodysuits - 3 Pack.webp' 
+            },
+            
+            { 
+                id: 2, 
+                category: 'baby',
+                subcategory: 'baby-girls',
+                title: 'Baby Romper - Pink Floral', 
+                price: '₹699', 
+                age: '3-12 months',
+                size: '3M-12M',
+                color: 'Pink Floral',
+                badge: 'popular',
+                description: 'Adorable floral romper for baby girls with snap closures and comfortable fit. Perfect for special occasions or everyday cuteness.',
+                features: [
+                    'Soft cotton blend',
+                    'Snap closures',
+                    'Floral pattern',
+                    'Machine washable',
+                    'Comfortable fit',
+                    'Breathable material',
+                    'Easy to wear'
+                ],
+                image: '../kids/Baby Romper - Pink Floral.jpeg' 
+            },
+            
+            { 
+                id: 3, 
+                category: 'baby',
+                subcategory: 'baby-boys',
+                title: 'Baby Sleep Sack', 
+                price: '₹1,299', 
+                originalPrice: '₹1,599',
+                age: '0-18 months',
+                size: 'S-L',
+                color: 'Blue Stars',
+                badge: 'sale',
+                description: 'Warm and safe sleep sack for babies. TOG rated for different temperatures with zipper closure for easy diaper changes.',
+                features: [
+                    'TOG 1.0 rating',
+                    'Zipper closure',
+                    'Breathable fabric',
+                    'Machine washable',
+                    'Safety compliant',
+                    'Star pattern',
+                    'Soft fleece lining'
+                ],
+                image: '../kids/Baby Sleep Sack.jpg' 
+            },
+            
+            { 
+                id: 21, 
+                category: 'baby',
+                subcategory: 'baby-girls',
+                title: 'Baby Hooded Towel', 
+                price: '₹549', 
+                originalPrice: '₹699',
+                age: '0-24 months',
+                size: 'One Size',
+                color: 'Yellow',
+                badge: 'new',
+                description: 'Soft hooded towel for baby bath time. Extra absorbent and gentle on delicate skin with cute animal ears.',
+                features: [
+                    'Extra absorbent',
+                    'Hooded design',
+                    'Animal ears',
+                    'Machine washable',
+                    'Gentle fabric',
+                    'Quick dry',
+                    'Snug fit'
+                ],
+                image: '../kids/Baby Hooded Towel.jpg' 
+            },
+            
+            { 
+                id: 22, 
+                category: 'baby',
+                subcategory: 'baby-boys',
+                title: 'Baby Mittens & Booties Set', 
+                price: '₹399', 
+                age: '0-6 months',
+                size: 'Newborn',
+                color: 'Gray',
+                badge: 'new',
+                description: 'Warm mittens and booties set to keep baby cozy. Scratch-proof mittens protect baby from accidental scratches.',
+                features: [
+                    'Scratch-proof',
+                    'Soft fleece',
+                    'Mitten & bootie set',
+                    'Machine washable',
+                    'Elastic cuffs',
+                    'Non-slip soles',
+                    'Gender neutral'
+                ],
+                image: '../kids/Baby Mittens & Booties Set.jpg' 
+            },
+            
+            { 
+                id: 41, 
+                category: 'baby',
+                subcategory: 'baby-girls',
+                title: 'Baby Sun Hat - Yellow', 
+                price: '₹349', 
+                age: '0-24 months',
+                size: 'Adjustable',
+                color: 'Yellow',
+                badge: 'new',
+                description: 'UV protection sun hat with wide brim to protect baby from sun. Adjustable chin strap.',
+                features: [
+                    'UPF 50+ protection',
+                    'Wide brim',
+                    'Adjustable strap',
+                    'Breathable fabric',
+                    'Lightweight',
+                    'Machine washable',
+                    'Foldable'
+                ],
+                image: '../kids/Baby Sun Hat - Yellow.jpg' 
+            },
+            
+            { 
+                id: 42, 
+                category: 'baby',
+                subcategory: 'baby-boys',
+                title: 'Baby Bibs - 5 Pack', 
+                price: '₹599', 
+                originalPrice: '₹799',
+                age: '0-24 months',
+                size: 'One Size',
+                color: 'Assorted Colors',
+                badge: 'sale',
+                description: 'Absorbent baby bibs with waterproof backing. Easy to clean and perfect for feeding time.',
+                features: [
+                    'Waterproof backing',
+                    'Absorbent front',
+                    'Snap closure',
+                    'Machine washable',
+                    '5-pack value',
+                    'Soft terry cloth',
+                    'Stain resistant'
+                ],
+                image: '../kids/Baby Bibs - 5 Pack.jpg' 
+            },
+            
+            // Additional baby products to reach 12
+            { 
+                id: 43, 
+                category: 'baby',
+                subcategory: 'baby-girls',
+                title: 'Baby Dress - Floral', 
+                price: '₹799', 
+                age: '6-18 months',
+                size: '6M-18M',
+                color: 'Pink Floral',
+                badge: 'new',
+                description: 'Beautiful floral dress for baby girls. Perfect for special occasions and photos.',
+                features: [
+                    'Soft cotton',
+                    'Floral pattern',
+                    'Elastic neckline',
+                    'Machine washable',
+                    'Comfortable fit',
+                    'Breathable',
+                    'Hand wash recommended'
+                ],
+                image: '../kids/Baby Dress - Floral.avif' 
+            },
+            
+            { 
+                id: 44, 
+                category: 'baby',
+                subcategory: 'baby-boys',
+                title: 'Baby Pants - 2 Pack', 
+                price: '₹649', 
+                age: '0-24 months',
+                size: 'NB-24M',
+                color: 'Navy, Gray',
+                badge: 'new',
+                description: 'Comfortable baby pants with elastic waist. Easy to put on and perfect for everyday wear.',
+                features: [
+                    'Elastic waist',
+                    'Soft cotton',
+                    '2-pack value',
+                    'Machine washable',
+                    'Comfortable fit',
+                    'Durable',
+                    'Tagless'
+                ],
+                image: '../kids/Baby Pants - 2 Pack.jpg' 
+            },
+            
+            { 
+                id: 45, 
+                category: 'baby',
+                subcategory: 'baby-girls',
+                title: 'Baby Sweater - Knitted', 
+                price: '₹899', 
+                originalPrice: '₹1,099',
+                age: '0-18 months',
+                size: '0-18M',
+                color: 'Cream',
+                badge: 'sale',
+                description: 'Soft knitted sweater to keep baby warm. Perfect for cooler days and special occasions.',
+                features: [
+                    'Soft knitted fabric',
+                    'Button closure',
+                    'Gentle on skin',
+                    'Machine washable',
+                    'Warm yet breathable',
+                    'Hand wash recommended',
+                    'Classic design'
+                ],
+                image: '../kids/Baby Sweater - Knitted.jpg' 
+            },
+            
+            { 
+                id: 46, 
+                category: 'baby',
+                subcategory: 'baby-boys',
+                title: 'Baby Socks - 6 Pack', 
+                price: '₹299', 
+                age: '0-12 months',
+                size: '0-12M',
+                color: 'Assorted',
+                badge: 'new',
+                description: 'Soft baby socks that stay on. Non-slip soles for safety when baby starts to stand.',
+                features: [
+                    '6-pack value',
+                    'Non-slip soles',
+                    'Soft cotton',
+                    'Machine washable',
+                    'Stay-on design',
+                    'Breathable',
+                    'Elastic cuffs'
+                ],
+                image: '../kids/Baby Socks - 6 Pack.jpg' 
+            },
+            
+            { 
+                id: 47, 
+                category: 'baby',
+                subcategory: 'baby-girls',
+                title: 'Baby Swaddle Blanket', 
+                price: '₹749', 
+                age: '0-6 months',
+                size: 'Large',
+                color: 'Pink Dots',
+                badge: 'popular',
+                description: 'Soft muslin swaddle blanket. Lightweight yet warm, perfect for swaddling newborns.',
+                features: [
+                    'Muslin cotton',
+                    'Lightweight',
+                    'Breathable',
+                    'Machine washable',
+                    'Large size',
+                    'Gets softer with wash',
+                    'Multipurpose'
+                ],
+                image: '../kids/Baby Swaddle Blanket.webp' 
+            },
+            
+            // Boys Products (4-14 years) - 12 products
+            { 
+                id: 4, 
+                category: 'boys',
+                subcategory: 'boys-tops',
+                title: 'Boys Graphic T-Shirt - Dinosaur', 
+                price: '₹499', 
+                age: '4-10 years',
+                size: '4Y-10Y',
+                color: 'Blue',
+                badge: 'new',
+                description: 'Fun dinosaur graphic t-shirt for boys. Made with soft cotton for all-day comfort. Perfect for play and school.',
+                features: [
+                    '100% cotton',
+                    'Durable print',
+                    'Regular fit',
+                    'Machine washable',
+                    'Fun design',
+                    'Breathable',
+                    'Color fast'
+                ],
+                image: '../kids/Boys Graphic T-Shirt - Dinosaur.avif' 
+            },
+            
+            { 
+                id: 5, 
+                category: 'boys',
+                subcategory: 'boys-bottoms',
+                title: 'Boys Cargo Pants', 
+                price: '₹899', 
+                age: '6-14 years',
+                size: '6Y-14Y',
+                color: 'Khaki',
+                badge: 'popular',
+                description: 'Durable cargo pants with multiple pockets. Perfect for active boys who need storage for their treasures.',
+                features: [
+                    'Durable fabric',
+                    'Multiple pockets',
+                    'Adjustable waist',
+                    'Machine washable',
+                    'Reinforced knees',
+                    'Comfortable fit',
+                    'Easy care'
+                ],
+                image: '../kids/Boys Cargo Pants.jpg' 
+            },
+            
+            { 
+                id: 6, 
+                category: 'boys',
+                subcategory: 'boys-outerwear',
+                title: 'Boys Puffer Jacket', 
+                price: '₹1,999', 
+                originalPrice: '₹2,499',
+                age: '8-14 years',
+                size: '8Y-14Y',
+                color: 'Navy Blue',
+                badge: 'sale',
+                description: 'Warm puffer jacket for cold weather. Lightweight yet highly insulated with water-resistant finish.',
+                features: [
+                    'Highly insulated',
+                    'Water-resistant',
+                    'Zipper closure',
+                    'Machine washable',
+                    'Lightweight',
+                    'Multiple pockets',
+                    'Hood included'
+                ],
+                image: '../kids/Boys Puffer Jacket.jpg' 
+            },
+            
+            { 
+                id: 23, 
+                category: 'boys',
+                subcategory: 'boys-tops',
+                title: 'Boys Hooded Sweatshirt', 
+                price: '₹799', 
+                originalPrice: '₹999',
+                age: '6-12 years',
+                size: '6Y-12Y',
+                color: 'Black',
+                badge: 'sale',
+                description: 'Comfortable hooded sweatshirt with kangaroo pocket. Perfect for cool days and outdoor activities.',
+                features: [
+                    'Soft fleece',
+                    'Kangaroo pocket',
+                    'Hood with drawstring',
+                    'Machine washable',
+                    'Ribbed cuffs',
+                    'Comfortable fit',
+                    'Durable'
+                ],
+                image: '../kids/Boys Hooded Sweatshirt.webp' 
+            },
+            
+            { 
+                id: 24, 
+                category: 'boys',
+                subcategory: 'boys-shoes',
+                title: 'Boys Sports Shoes', 
+                price: '₹1,499', 
+                age: '8-14 years',
+                size: '8Y-14Y',
+                color: 'Blue/White',
+                badge: 'new',
+                description: 'Lightweight sports shoes with good grip and support. Perfect for running, playing, and everyday wear.',
+                features: [
+                    'Lightweight',
+                    'Good grip soles',
+                    'Breathable mesh',
+                    'Easy to clean',
+                    'Shock absorption',
+                    'Velcro closure',
+                    'Durable'
+                ],
+                image: '../kids/Boys Sports Shoes.webp' 
+            },
+            
+            { 
+                id: 48, 
+                category: 'boys',
+                subcategory: 'boys-tops',
+                title: 'Boys Polo Shirt - Striped', 
+                price: '₹649', 
+                age: '6-12 years',
+                size: '6Y-12Y',
+                color: 'Blue/White',
+                badge: 'new',
+                description: 'Classic polo shirt with striped design. Perfect for school or casual wear.',
+                features: [
+                    'Cotton pique',
+                    'Striped design',
+                    'Button placket',
+                    'Machine washable',
+                    'Regular fit',
+                    'Durable',
+                    'Easy iron'
+                ],
+                image: '../kids/Boys Polo Shirt - Striped.jpg' 
+            },
+            
+            { 
+                id: 49, 
+                category: 'boys',
+                subcategory: 'boys-bottoms',
+                title: 'Boys Shorts - 2 Pack', 
+                price: '₹799', 
+                originalPrice: '₹999',
+                age: '4-10 years',
+                size: '4Y-10Y',
+                color: 'Navy, Gray',
+                badge: 'sale',
+                description: 'Comfortable shorts for active boys. Perfect for summer and casual wear.',
+                features: [
+                    '2-pack value',
+                    'Elastic waist',
+                    'Drawstring',
+                    'Machine washable',
+                    'Comfortable fit',
+                    'Durable fabric',
+                    'Quick dry'
+                ],
+                image: '../kids/Boys Shorts - 2 Pack.jpg' 
+            },
+            
+            { 
+                id: 50, 
+                category: 'boys',
+                subcategory: 'boys-outerwear',
+                title: 'Boys Rain Jacket - Yellow', 
+                price: '₹1,299', 
+                age: '6-14 years',
+                size: '6Y-14Y',
+                color: 'Yellow',
+                badge: 'new',
+                description: 'Bright yellow rain jacket for rainy days. Waterproof with reflective details for safety.',
+                features: [
+                    'Waterproof',
+                    'Reflective details',
+                    'Hood included',
+                    'Machine washable',
+                    'Lightweight',
+                    'Zipper closure',
+                    'Bright color'
+                ],
+                image: '../kids/Boys Rain Jacket - Yellow.avif' 
+            },
+            
+            { 
+                id: 51, 
+                category: 'boys',
+                subcategory: 'boys-tops',
+                title: 'Boys Henley Shirt', 
+                price: '₹599', 
+                age: '8-14 years',
+                size: '8Y-14Y',
+                color: 'Green',
+                badge: 'new',
+                description: 'Casual henley shirt with button placket. Perfect for layering or wearing alone.',
+                features: [
+                    'Cotton blend',
+                    'Henley neckline',
+                    'Button placket',
+                    'Machine washable',
+                    'Regular fit',
+                    'Breathable',
+                    'Versatile'
+                ],
+                image: '../kids/Boys Henley Shirt.webp' 
+            },
+            
+            { 
+                id: 52, 
+                category: 'boys',
+                subcategory: 'boys-bottoms',
+                title: 'Boys Jeans - Slim Fit', 
+                price: '₹1,099', 
+                originalPrice: '₹1,299',
+                age: '8-14 years',
+                size: '8Y-14Y',
+                color: 'Dark Blue',
+                badge: 'sale',
+                description: 'Durable denim jeans with stretch for comfort. Perfect for school or casual wear.',
+                features: [
+                    'Denim with stretch',
+                    'Slim fit',
+                    'Zipper fly',
+                    'Machine washable',
+                    'Reinforced knees',
+                    'Comfortable',
+                    'Durable'
+                ],
+                image: '../kids/Boys Jeans - Slim Fit.jpg' 
+            },
+            
+            { 
+                id: 53, 
+                category: 'boys',
+                subcategory: 'boys-tops',
+                title: 'Boys Thermal Shirt', 
+                price: '₹749', 
+                age: '6-12 years',
+                size: '6Y-12Y',
+                color: 'Gray',
+                badge: 'new',
+                description: 'Warm thermal shirt for cold weather. Perfect for layering under jackets.',
+                features: [
+                    'Thermal fabric',
+                    'Long sleeves',
+                    'Ribbed cuffs',
+                    'Machine washable',
+                    'Warm yet breathable',
+                    'Comfortable fit',
+                    'Layering piece'
+                ],
+                image: '../kids/Boys Thermal Shirt.jpg' 
+            },
+            
+            { 
+                id: 54, 
+                category: 'boys',
+                subcategory: 'boys-shoes',
+                title: 'Boys Sandals', 
+                price: '₹899', 
+                age: '4-10 years',
+                size: '4Y-10Y',
+                color: 'Blue',
+                badge: 'new',
+                description: 'Comfortable sandals for summer. Adjustable straps for perfect fit.',
+                features: [
+                    'Adjustable straps',
+                    'Non-slip soles',
+                    'Breathable',
+                    'Easy to clean',
+                    'Lightweight',
+                    'Comfortable',
+                    'Summer essential'
+                ],
+                image: '../kids/Boys Sandals.avif' 
+            },
+            
+            // Girls Products (4-14 years) - 12 products
+            { 
+                id: 7, 
+                category: 'girls',
+                subcategory: 'girls-dresses',
+                title: 'Girls Party Dress', 
+                price: '₹1,299', 
+                age: '4-10 years',
+                size: '4Y-10Y',
+                color: 'Pink',
+                badge: 'new',
+                description: 'Beautiful party dress for special occasions. Flowy fabric with delicate details that girls love.',
+                features: [
+                    'Flowy fabric',
+                    'Party dress',
+                    'Machine washable',
+                    'Delicate details',
+                    'Comfortable fit',
+                    'Semi-formal',
+                    'Twirl friendly'
+                ],
+                image: '../kids/Girls Party Dress.webp' 
+            },
+            
+            { 
+                id: 8, 
+                category: 'girls',
+                subcategory: 'girls-tops',
+                title: 'Girls Unicorn T-Shirt', 
+                price: '₹549', 
+                age: '5-12 years',
+                size: '5Y-12Y',
+                color: 'Purple',
+                badge: 'popular',
+                description: 'Magical unicorn graphic t-shirt that girls adore. Made with soft cotton for comfortable all-day wear.',
+                features: [
+                    'Soft cotton',
+                    'Unicorn design',
+                    'Regular fit',
+                    'Machine washable',
+                    'Sparkle details',
+                    'Breathable',
+                    'Durable print'
+                ],
+                image: '../kids/Girls Unicorn T-Shirt.webp' 
+            },
+            
+            { 
+                id: 9, 
+                category: 'girls',
+                subcategory: 'girls-bottoms',
+                title: 'Girls Leggings - 2 Pack', 
+                price: '₹799', 
+                originalPrice: '₹999',
+                age: '4-12 years',
+                size: '4Y-12Y',
+                color: 'Black, Gray',
+                badge: 'sale',
+                description: 'Comfortable leggings perfect for school, play, or dance class. Stretchy fabric that moves with your child.',
+                features: [
+                    'Stretchy fabric',
+                    '2-pack',
+                    'Wide waistband',
+                    'Machine washable',
+                    'Comfortable fit',
+                    'Durable',
+                    'Opaque material'
+                ],
+                image: '../kids/Girls Leggings - 2 Pack.jpg' 
+            },
+            
+            { 
+                id: 25, 
+                category: 'girls',
+                subcategory: 'girls-dresses',
+                title: 'Girls Summer Dress', 
+                price: '₹899', 
+                age: '6-10 years',
+                size: '6Y-10Y',
+                color: 'Yellow',
+                badge: 'new',
+                description: 'Light and airy summer dress perfect for hot days. Flowy fabric with pretty floral pattern.',
+                features: [
+                    'Lightweight cotton',
+                    'Floral pattern',
+                    'Flowy design',
+                    'Machine washable',
+                    'Comfortable fit',
+                    'Breathable',
+                    'Easy to wear'
+                ],
+                image: '../kids/Girls Summer Dress.webp' 
+            },
+            
+            { 
+                id: 26, 
+                category: 'girls',
+                subcategory: 'girls-shoes',
+                title: 'Girls Ballet Flats', 
+                price: '₹699', 
+                age: '5-12 years',
+                size: '5Y-12Y',
+                color: 'Silver',
+                badge: 'popular',
+                description: 'Sparkly ballet flats for dress-up and parties. Flexible sole for comfort with pretty bow detail.',
+                features: [
+                    'Sparkly finish',
+                    'Flexible sole',
+                    'Bow detail',
+                    'Easy to wear',
+                    'Comfortable fit',
+                    'Lightweight',
+                    'Party shoes'
+                ],
+                image: '../kids/Girls Ballet Flats.jpeg' 
+            },
+            
+            { 
+                id: 55, 
+                category: 'girls',
+                subcategory: 'girls-tops',
+                title: 'Girls Blouse - Floral', 
+                price: '₹649', 
+                age: '6-12 years',
+                size: '6Y-12Y',
+                color: 'White Floral',
+                badge: 'new',
+                description: 'Pretty floral blouse with delicate details. Perfect for school or special occasions.',
+                features: [
+                    'Floral pattern',
+                    'Delicate details',
+                    'Button front',
+                    'Machine washable',
+                    'Comfortable fit',
+                    'Breathable',
+                    'Hand wash recommended'
+                ],
+                image: '../kids/Girls Blouse - Floral.webp' 
+            },
+            
+            { 
+                id: 56, 
+                category: 'girls',
+                subcategory: 'girls-bottoms',
+                title: 'Girls Skirt - Pleated', 
+                price: '₹749', 
+                age: '6-12 years',
+                size: '6Y-12Y',
+                color: 'Navy',
+                badge: 'new',
+                description: 'Classic pleated skirt perfect for school or dress-up. Comfortable elastic waistband.',
+                features: [
+                    'Pleated design',
+                    'Elastic waist',
+                    'School appropriate',
+                    'Machine washable',
+                    'Comfortable fit',
+                    'Durable fabric',
+                    'Versatile'
+                ],
+                image: '../kids/Girls Skirt - Pleated.jpg' 
+            },
+            
+            { 
+                id: 57, 
+                category: 'girls',
+                subcategory: 'girls-outerwear',
+                title: 'Girls Puffer Vest - Pink', 
+                price: '₹1,099', 
+                originalPrice: '₹1,399',
+                age: '6-12 years',
+                size: '6Y-12Y',
+                color: 'Pink',
+                badge: 'sale',
+                description: 'Warm puffer vest for layering. Perfect for cooler days without restricting arm movement.',
+                features: [
+                    'Lightweight insulation',
+                    'Zipper front',
+                    'Multiple pockets',
+                    'Machine washable',
+                    'Comfortable fit',
+                    'Easy to layer',
+                    'Stylish'
+                ],
+                image: '../kids/Girls Puffer Vest - Pink.webp' 
+            },
+            
+            { 
+                id: 58, 
+                category: 'girls',
+                subcategory: 'girls-tops',
+                title: 'Girls Sweater - Cable Knit', 
+                price: '₹899', 
+                age: '8-14 years',
+                size: '8Y-14Y',
+                color: 'Cream',
+                badge: 'new',
+                description: 'Cozy cable knit sweater for cold days. Perfect for school or casual weekend wear.',
+                features: [
+                    'Cable knit design',
+                    'Soft acrylic blend',
+                    'Round neck',
+                    'Machine washable',
+                    'Warm yet breathable',
+                    'Comfortable fit',
+                    'Classic style'
+                ],
+                image: '../kids/Girls Sweater - Cable Knit.webp' 
+            },
+            
+            { 
+                id: 59, 
+                category: 'girls',
+                subcategory: 'girls-bottoms',
+                title: 'Girls Jeans - Skinny Fit', 
+                price: '₹999', 
+                originalPrice: '₹1,199',
+                age: '8-14 years',
+                size: '8Y-14Y',
+                color: 'Light Blue',
+                badge: 'sale',
+                description: 'Comfortable skinny jeans with stretch. Perfect for everyday wear.',
+                features: [
+                    'Denim with stretch',
+                    'Skinny fit',
+                    'Zipper fly',
+                    'Machine washable',
+                    'Comfortable',
+                    'Durable',
+                    'Versatile'
+                ],
+                image: '../kids/Girls Jeans - Skinny Fit.jpg' 
+            },
+            
+            { 
+                id: 60, 
+                category: 'girls',
+                subcategory: 'girls-tops',
+                title: 'Girls Hoodie - Sparkle', 
+                price: '₹849', 
+                age: '6-12 years',
+                size: '6Y-12Y',
+                color: 'Rose Gold',
+                badge: 'popular',
+                description: 'Sparkly hoodie that girls love. Soft fabric with hood and kangaroo pocket.',
+                features: [
+                    'Sparkle finish',
+                    'Soft fleece',
+                    'Kangaroo pocket',
+                    'Machine washable',
+                    'Comfortable fit',
+                    'Hood with drawstring',
+                    'Girls favorite'
+                ],
+                image: '../kids/Girls Hoodie - Sparkle.avif' 
+            },
+            
+            { 
+                id: 61, 
+                category: 'girls',
+                subcategory: 'girls-shoes',
+                title: 'Girls Sneakers - Glitter', 
+                price: '₹1,199', 
+                age: '6-12 years',
+                size: '6Y-12Y',
+                color: 'Pink Glitter',
+                badge: 'new',
+                description: 'Glitter sneakers that are both stylish and comfortable. Perfect for school and play.',
+                features: [
+                    'Glitter finish',
+                    'Lightweight',
+                    'Breathable mesh',
+                    'Easy to clean',
+                    'Comfortable fit',
+                    'Velcro closure',
+                    'Girls favorite'
+                ],
+                image: '../kids/Girls Sneakers - Glitter.webp' 
+            },
+            
+            // Additional categories with more products
+            // Playwear - 12 products
+            { 
+                id: 10, 
+                category: 'playwear',
+                subcategory: 'activewear',
+                title: 'Kids Athletic Set', 
+                price: '₹1,199', 
+                age: '6-12 years',
+                size: '6Y-12Y',
+                color: 'Blue/Black',
+                badge: 'new',
+                description: 'Complete athletic set for active kids. Moisture-wicking fabric keeps them dry during sports and play.',
+                features: [
+                    'Moisture-wicking',
+                    'Complete set',
+                    'Breathable fabric',
+                    'Machine washable',
+                    'Comfortable fit',
+                    'Durable',
+                    'Quick dry'
+                ],
+                image: '../kids/Kids Athletic Set.jpg' 
+            },
+            
+            { 
+                id: 11, 
+                category: 'playwear',
+                subcategory: 'outdoor',
+                title: 'Kids Rain Jacket', 
+                price: '₹1,499', 
+                age: '4-10 years',
+                size: '4Y-10Y',
+                color: 'Yellow',
+                badge: 'popular',
+                description: 'Bright waterproof rain jacket for outdoor adventures. Reflective details for visibility in low light.',
+                features: [
+                    'Waterproof',
+                    'Reflective details',
+                    'Hood included',
+                    'Machine washable',
+                    'Lightweight',
+                    'Pockets',
+                    'Bright color'
+                ],
+                image: 'https://images.unsplash.com/photo-1552902865-b72c031ac5ea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80' 
+            },
+            
+            // More products for other categories...
+            // Adding more products to reach minimum 10 per page
+        ];
+
+        // ===== State Management =====
+        let cart = [];
+        let wishlist = [];
+        let currentPage = 'kids';
+        let carouselIndex = 0;
+
+        // ===== Initialize on Page Load =====
+        document.addEventListener('DOMContentLoaded', function() {
+            loadKidsProducts();
+            startCarousel();
+            updateCartCount();
+            
+            // Add click listeners to product cards
+            document.addEventListener('click', function(e) {
+                const productCard = e.target.closest('.product-card');
+                if (productCard && !e.target.closest('.product-action-btn')) {
+                    const productId = parseInt(productCard.getAttribute('data-product-id'));
+                    if (productId) {
+                        showProductDetail(productId);
+                    }
+                }
+            });
+        });
+
+        // ===== Carousel Functions =====
+        function startCarousel() {
+            setInterval(() => {
+                nextCarouselSlide();
+            }, 5000);
+        }
+
+        function nextCarouselSlide() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            slides[carouselIndex].classList.remove('active');
+            dots[carouselIndex].classList.remove('active');
+            
+            carouselIndex = (carouselIndex + 1) % slides.length;
+            
+            slides[carouselIndex].classList.add('active');
+            dots[carouselIndex].classList.add('active');
+        }
+
+        function currentSlide(n) {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dots = document.querySelectorAll('.carousel-dot');
+            
+            slides[carouselIndex].classList.remove('active');
+            dots[carouselIndex].classList.remove('active');
+            
+            carouselIndex = n;
+            
+            slides[carouselIndex].classList.add('active');
+            dots[carouselIndex].classList.add('active');
+        }
+
+        // ===== Page Navigation =====
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update active nav items
+            updateActiveNav(pageId);
+            
+            // Load content for specific pages
+            loadPageContent(pageId);
+            
+            currentPage = pageId;
+            return false;
+        }
+
+        function updateActiveNav(pageId) {
+            // Update main nav
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Update kids subnav
+            document.querySelectorAll('.category-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Mark active links based on page
+            if (pageId === 'kids' || ['kids-baby', 'kids-boys', 'kids-girls', 'kids-playwear', 'kids-school', 'kids-sale'].includes(pageId)) {
+                document.querySelector('.nav-item[onclick*="kids"]').classList.add('active');
+                document.querySelector('.category-link[onclick*="kids"]').classList.add('active');
+            }
+            
+            // Mark specific category if applicable
+            const categoryLink = document.querySelector(`.category-link[onclick*="${pageId}"]`);
+            if (categoryLink) {
+                categoryLink.classList.add('active');
+            }
+        }
+
+        function loadPageContent(pageId) {
+            switch(pageId) {
+                case 'kids-baby':
+                    loadCategoryProducts('baby', 'babyProducts');
+                    break;
+                case 'kids-boys':
+                    loadCategoryProducts('boys', 'boysProducts');
+                    break;
+                case 'kids-girls':
+                    loadCategoryProducts('girls', 'girlsProducts');
+                    break;
+                case 'kids-playwear':
+                    loadCategoryProducts('playwear', 'playwearProducts');
+                    break;
+                case 'kids-school':
+                    loadCategoryProducts('school', 'schoolProducts');
+                    break;
+                case 'kids-sale':
+                    loadSaleProducts('saleProducts');
+                    break;
+                case 'cart':
+                    loadCart();
+                    break;
+                case 'wishlist':
+                    loadWishlist();
+                    break;
+            }
+        }
+
+        function loadSaleProducts(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            const saleProducts = kidsProducts.filter(p => p.originalPrice);
+            
+            // Ensure at least 10 products
+            const displayProducts = saleProducts.length > 10 ? saleProducts.slice(0, 12) : saleProducts;
+            
+            if (displayProducts.length === 0) {
+                container.innerHTML = '<p class="text-center" style="color: var(--text-light);">No sale products available.</p>';
+                return;
+            }
+            
+            displayProducts.forEach(product => {
+                container.innerHTML += createProductCardHTML(product);
+            });
+        }
+
+        // ===== Product Display Functions =====
+        function loadKidsProducts() {
+            const productsGrid = document.getElementById('kidsProductsGrid');
+            if (!productsGrid) return;
+            
+            productsGrid.innerHTML = '';
+            
+            // Display 12 products on main page
+            const mainPageProducts = kidsProducts.slice(0, 12);
+            
+            mainPageProducts.forEach(product => {
+                productsGrid.innerHTML += createProductCardHTML(product);
+            });
+        }
+
+        function loadCategoryProducts(category, containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            const categoryProducts = kidsProducts.filter(p => p.category === category);
+            
+            // Ensure at least 10 products per category
+            const displayProducts = categoryProducts.length > 10 ? categoryProducts.slice(0, 12) : categoryProducts;
+            
+            if (displayProducts.length === 0) {
+                container.innerHTML = '<p class="text-center" style="color: var(--text-light);">No products found in this category.</p>';
+                return;
+            }
+            
+            displayProducts.forEach(product => {
+                container.innerHTML += createProductCardHTML(product);
+            });
+        }
+
+        function createProductCardHTML(product) {
+            const badgeHTML = product.badge ? `<div class="product-badge ${product.badge}">${product.badge.toUpperCase()}</div>` : '';
+            const originalPriceHTML = product.originalPrice ? `<span class="original">${product.originalPrice}</span>` : '';
+            
+            return `
+                <div class="product-card" data-product-id="${product.id}">
+                    ${badgeHTML}
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.title}" loading="lazy">
+                        <div class="product-actions">
+                            <button class="product-action-btn" onclick="event.stopPropagation(); addToWishlist(${product.id})">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <button class="product-action-btn" onclick="event.stopPropagation(); quickAddToCart(${product.id})">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">${product.title}</h3>
+                        <p class="product-price">${product.price}${originalPriceHTML}</p>
+                        <div class="product-age">
+                            <i class="fas fa-child"></i> ${product.age}
+                        </div>
+                        <div class="product-cta">
+                            <button class="btn btn-small" onclick="event.stopPropagation(); addToCart(${product.id})">Add to Cart</button>
+                            <button class="btn-outline btn-small" onclick="event.stopPropagation(); showProductDetail(${product.id})">View Details</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // ===== Product Detail Functions =====
+        function showProductDetail(productId) {
+            const product = kidsProducts.find(p => p.id === productId);
+            if (!product) return;
+            
+            const sizes = ['S', 'M', 'L', 'XL'];
+            const ageGroups = ['3-6 months', '6-12 months', '1-2 years', '2-3 years', '3-4 years', '4-5 years', '5-6 years', '6-7 years', '7-8 years', '8-9 years', '9-10 years', '10-11 years', '11-12 years', '12-13 years', '13-14 years'];
+            
+            const sizeOptions = sizes.map(size => `
+                <button class="size-option ${size === 'M' ? 'active' : ''}" onclick="selectSize(this, '${size}')">${size}</button>
+            `).join('');
+            
+            const ageOptions = ageGroups.slice(0, 5).map(age => `
+                <button class="age-option ${age === product.age ? 'active' : ''}" onclick="selectAge(this, '${age}')">${age}</button>
+            `).join('');
+            
+            const featuresHTML = product.features.map(feature => `
+                <div class="feature-item">
+                    <i class="fas fa-check"></i>
+                    <span>${feature}</span>
+                </div>
+            `).join('');
+            
+            const modalContent = document.getElementById('productDetailContent');
+            modalContent.innerHTML = `
+                <div class="product-detail-images">
+                    <img src="${product.image}" alt="${product.title}" class="product-detail-image">
+                </div>
+                <div class="product-detail-info">
+                    <h1 class="product-detail-title">${product.title}</h1>
+                    <p class="product-detail-price">${product.price} ${product.originalPrice ? `<span style="text-decoration: line-through; color: var(--text-light); font-size: 18px; margin-left: 10px;">${product.originalPrice}</span>` : ''}</p>
+                    <p class="product-detail-description">${product.description}</p>
+                    
+                    <div class="product-detail-features">
+                        ${featuresHTML}
+                    </div>
+                    
+                    <div class="size-selector">
+                        <h4>Select Size</h4>
+                        <div class="size-options">
+                            ${sizeOptions}
+                        </div>
+                    </div>
+                    
+                    <div class="age-selector">
+                        <h4>Select Age Group</h4>
+                        <div class="age-options">
+                            ${ageOptions}
+                        </div>
+                    </div>
+                    
+                    <div class="detail-actions">
+                        <button class="btn" onclick="addToCart(${product.id}, true)">
+                            <i class="fas fa-shopping-bag"></i> Add to Cart
+                        </button>
+                        <button class="btn-outline" onclick="addToWishlist(${product.id})">
+                            <i class="far fa-heart"></i> Add to Wishlist
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('productModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeProductDetail() {
+            document.getElementById('productModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function selectSize(button, size) {
+            document.querySelectorAll('.size-option').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+        }
+
+        function selectAge(button, age) {
+            document.querySelectorAll('.age-option').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            button.classList.add('active');
+        }
+
+        // ===== Cart Functions =====
+        function quickAddToCart(productId) {
+            addToCart(productId, true);
+        }
+
+        function addToCart(productId, showAlert = true) {
+            const product = kidsProducts.find(p => p.id === productId);
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...product,
+                    quantity: 1,
+                    selectedSize: 'M',
+                    selectedAge: product.age
+                });
+            }
+            
+            updateCartCount();
+            
+            if (showAlert) {
+                showNotification('Added to cart!', 'success');
+            }
+            
+            if (currentPage === 'cart') {
+                loadCart();
+            }
+            
+            closeProductDetail();
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(item => item.id !== productId);
+            updateCartCount();
+            loadCart();
+            showNotification('Removed from cart', 'info');
+        }
+
+        function updateQuantity(productId, change) {
+            const item = cart.find(item => item.id === productId);
+            if (item) {
+                item.quantity += change;
+                if (item.quantity < 1) {
+                    removeFromCart(productId);
+                    return;
+                }
+                updateCartCount();
+                loadCart();
+            }
+        }
+
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.querySelector('.cart-count').textContent = count;
+        }
+
+        function loadCart() {
+            const cartContainer = document.getElementById('cartItems');
+            const subtotalElement = document.getElementById('cartSubtotal');
+            const totalElement = document.getElementById('cartTotal');
+            
+            if (cart.length === 0) {
+                cartContainer.innerHTML = '<p class="text-center" style="color: var(--text-light);">Your cart is empty</p>';
+                subtotalElement.textContent = '₹0';
+                totalElement.textContent = '₹0';
+                return;
+            }
+            
+            cartContainer.innerHTML = '';
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const price = parseInt(item.price.replace('₹', '').replace(',', ''));
+                const itemTotal = price * item.quantity;
+                subtotal += itemTotal;
+                
+                cartContainer.innerHTML += `
+                    <div style="display: grid; grid-template-columns: 100px 1fr auto auto; gap: 20px; align-items: center; padding: 20px 0; border-bottom: 1px solid var(--border-color);">
+                        <div style="width: 100px; height: 100px; border-radius: 8px; overflow: hidden; background-color: var(--light-bg);">
+                            <img src="${item.image}" alt="${item.title}" style="width: 100%; height: 100%; object-fit: contain; padding: 10px;">
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 8px;">${item.title}</h4>
+                            <p style="color: var(--text-light); font-size: 14px; margin-bottom: 4px;">Size: ${item.selectedSize || 'M'}</p>
+                            <p style="color: var(--text-light); font-size: 14px;">Age: ${item.selectedAge || item.age}</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px;">
+                            <button class="btn-icon" onclick="updateQuantity(${item.id}, -1)" style="background: var(--light-bg);"><i class="fas fa-minus"></i></button>
+                            <span style="font-weight: 600;">${item.quantity}</span>
+                            <button class="btn-icon" onclick="updateQuantity(${item.id}, 1)" style="background: var(--light-bg);"><i class="fas fa-plus"></i></button>
+                        </div>
+                        <div style="text-align: right;">
+                            <p style="font-weight: 600; margin-bottom: 8px;">₹${itemTotal}</p>
+                            <button class="btn-outline btn-small" onclick="removeFromCart(${item.id})">Remove</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            const shipping = subtotal > 1999 ? 0 : 99;
+            const total = subtotal + shipping;
+            
+            subtotalElement.textContent = `₹${subtotal}`;
+            totalElement.textContent = `₹${total}`;
+            document.getElementById('cartShipping').textContent = shipping === 0 ? 'FREE' : `₹${shipping}`;
+        }
+
+        // ===== Wishlist Functions =====
+        function addToWishlist(productId, showAlert = true) {
+            const product = kidsProducts.find(p => p.id === productId);
+            
+            if (!wishlist.some(item => item.id === productId)) {
+                wishlist.push(product);
+                
+                if (showAlert) {
+                    showNotification('Added to wishlist!', 'success');
+                }
+                
+                if (currentPage === 'wishlist') {
+                    loadWishlist();
+                }
+            } else {
+                showNotification('Already in wishlist!', 'info');
+            }
+        }
+
+        function removeFromWishlist(productId) {
+            wishlist = wishlist.filter(item => item.id !== productId);
+            loadWishlist();
+            showNotification('Removed from wishlist', 'info');
+        }
+
+        function loadWishlist() {
+            const wishlistContainer = document.getElementById('wishlistItems');
+            
+            if (wishlist.length === 0) {
+                wishlistContainer.innerHTML = '<p class="text-center" style="color: var(--text-light);">Your wishlist is empty</p>';
+                return;
+            }
+            
+            wishlistContainer.innerHTML = '';
+            wishlist.forEach(product => {
+                wishlistContainer.innerHTML += createProductCardHTML(product);
+            });
+        }
+
+        // ===== Search Function =====
+        function performSearch() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase().trim();
+            const searchResults = document.getElementById('searchResults');
+            
+            if (!searchTerm) {
+                searchResults.innerHTML = '<p class="text-center" style="color: var(--text-light);">Please enter a search term.</p>';
+                return;
+            }
+            
+            const filteredProducts = kidsProducts.filter(product => 
+                product.title.toLowerCase().includes(searchTerm) ||
+                product.category.toLowerCase().includes(searchTerm) ||
+                product.subcategory.toLowerCase().includes(searchTerm) ||
+                product.age.toLowerCase().includes(searchTerm) ||
+                product.description.toLowerCase().includes(searchTerm) ||
+                product.features.some(feature => feature.toLowerCase().includes(searchTerm))
+            );
+            
+            if (filteredProducts.length === 0) {
+                searchResults.innerHTML = '<p class="text-center" style="color: var(--text-light);">No products found.</p>';
+                return;
+            }
+            
+            searchResults.innerHTML = '<h3 style="grid-column: 1 / -1; text-align: center; margin-bottom: 30px; color: var(--text-dark);">Search Results</h3>';
+            
+            filteredProducts.forEach(product => {
+                searchResults.innerHTML += createProductCardHTML(product);
+            });
+        }
+
+        // ===== Utility Functions =====
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = `
+                <div style="position: fixed; top: 20px; right: 20px; background: ${type === 'success' ? '#4caf50' : type === 'error' ? '#f44336' : '#2196f3'}; color: white; padding: 16px 24px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 3000; display: flex; align-items: center; gap: 12px; animation: slideIn 0.3s ease;">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                showNotification('Your cart is empty!', 'error');
+                return;
+            }
+            
+            showNotification('Proceeding to checkout... This is a demo site.', 'info');
+        }
+
+        function subscribeNewsletter() {
+            showNotification('Thank you for subscribing to our newsletter!', 'success');
+        }
+
+        // Add CSS for notification animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
