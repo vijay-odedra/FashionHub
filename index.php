@@ -614,7 +614,7 @@
                         <li><a href="../FashionHub/allpages/women.html">Women</a></li>
                         <li><a href="../FashionHub/allpages/kids.html">Kids</a></li>
                         <li><a href="../FashionHub/allpages/baby.html">Baby</a></li>
-                        <!-- <li><a href="#">Collections</a></li> -->
+                        <li><a href="../FashionHub/login.php">Login/Sigin</a></li>
                     </ul>
                 </nav>
                 
